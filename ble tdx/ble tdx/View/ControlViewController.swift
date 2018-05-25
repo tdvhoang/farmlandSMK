@@ -1,14 +1,17 @@
-//
-//  ControlViewController.swift
-//  iky.smartkey
-//
-//  Created by iky on 4/19/18.
-//  Copyright © 2018 iky. All rights reserved.
-//
+
 
 import UIKit
 
-class ControlViewController: BaseVC, BLEStatusDelegate {
+class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
+    
+    func success() {
+        
+        hideLoading()
+        imgConnect.image = UIImage(named:"ic_connect")
+        
+        ble.readStatus()
+    }
+    
     
     @IBOutlet weak var imgConnect: UIImageView!
     
@@ -137,6 +140,12 @@ class ControlViewController: BaseVC, BLEStatusDelegate {
         super.viewDidLoad()
         print("viewDidload")
         ble.delegateStatus = self;
+        ble.delegateLogon = self;
+        
+        if(ble.isConnected()){
+            ble.readStatus()
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -169,7 +178,7 @@ class ControlViewController: BaseVC, BLEStatusDelegate {
                 print("Disconnected")
                 ble.connectToPeripheral(ble.scannedPeripheral!)
             }else{
-                print("Connected")
+                print("Connected---->>>>>>>>>>>>")
                 ble.readStatus()
             }
         }

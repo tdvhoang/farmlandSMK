@@ -1,10 +1,4 @@
-//
-//  ChangeBikeInfViewController.swift
-//  iky.smartkey
-//
-//  Created by iky on 4/20/18.
-//  Copyright © 2018 iky. All rights reserved.
-//
+
 
 import UIKit
 
@@ -26,7 +20,6 @@ class ChangeBikeInfViewController: BaseVC {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func saveData() -> Void {

@@ -1,10 +1,4 @@
-//
-//  ScanTableViewCell.swift
-//  iky.smartkey
-//
-//  Created by iky on 4/19/18.
-//  Copyright © 2018 iky. All rights reserved.
-//
+
 
 import UIKit
 
@@ -20,7 +14,6 @@ class ScanTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

@@ -1,10 +1,3 @@
-//
-//  DeviceTableView.swift
-//  iky.smartkey
-//
-//  Created by iky on 4/16/18.
-//  Copyright © 2018 iky. All rights reserved.
-//
 
 import UIKit
 

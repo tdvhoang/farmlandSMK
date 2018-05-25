@@ -18,8 +18,8 @@ protocol BLEDelegate {
 
 }
 
-protocol BLELocationDelegate{
-    func updateLocation(status : Bool, rssi_current : UInt8, rssi_turnOn : UInt8,  rssi_turnOff : UInt8, time : UInt8)
+protocol BLELogonDelegate{
+    func success()
 }
 
 protocol BLEStatusDelegate{
@@ -68,7 +68,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var delegateVersion : BLEVersionDelegate!
     var delegateStatus : BLEStatusDelegate!
     var delegateRename : BLERenameDelegate!
-    var delegateLocation : BLELocationDelegate!
+    var delegateLogon : BLELogonDelegate!
     var delegateChangePass : BLEChangePassDelegate!
     var delegaatePeripheral : BLEDiscoverPeripheral!
     
@@ -172,13 +172,9 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
         
     }
-    func configureRSSI(valueTurnOn : UInt8, valueTurnOff : UInt8)  {
-        send(bleProtocol.configureRSSI(valueTurnOn: valueTurnOn, valueTurnOff: valueTurnOff))
-    }
     
-    func readRSSI(value : UInt8)  {
-        send(bleProtocol.readRSSI(value: value))
-    }
+    
+    
     func readStatus(){
         send(bleProtocol.readStatus())
     }
@@ -187,33 +183,38 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func sendCMD1(_ enable : Bool) -> Void {
-        
-        
+        if enable {
+            send(bleProtocol.sendCMD1(value: 0x01))
+        } else {
+            send(bleProtocol.sendCMD1(value: 0x00))
+        }
     }
     
     func sendCMD2(_ enable : Bool) -> Void {
-        
-        
+        if enable {
+            send(bleProtocol.sendCMD2(value: 0x01))
+        } else {
+            send(bleProtocol.sendCMD2(value: 0x00))
+        }
     }
     
     func sendCMD3(_ enable : Bool) -> Void {
-        
-        
+        if enable {
+            send(bleProtocol.sendCMD3(value: 0x01))
+        } else {
+            send(bleProtocol.sendCMD3(value: 0x00))
+        }
     }
 
     func sendCMD4(_ enable : Bool) -> Void {
-        
-        
-    }
-
-    func setVibrate(_ enable : Bool) -> Void {
         if enable {
-            send(bleProtocol.setVibeOn())
+            send(bleProtocol.sendCMD4(value: 0x01))
         } else {
-            send(bleProtocol.setVibeOff())
+            send(bleProtocol.sendCMD4(value: 0x00))
         }
-
     }
+
+    
     func logon() -> Void {
         send(bleProtocol.logon())
         
@@ -221,7 +222,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
 
     var newName : String!
     func rename(_ newName : String) -> Void {
-        if(newName.characters.count <= 10){
+        if(newName.count <= 10){
             self.newName = newName
             send(bleProtocol.rename(newName))
         }else{
@@ -399,7 +400,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
         if (error != nil){
-            print("Update value Error \(error)")
+            print("Update value Error",error!)
             
         }else{
             // the number of elements:
@@ -412,11 +413,24 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             //parser data
             if(array[3] == 0x85){
                 delegate.showError("Sai mật khẩu")
-            }else if(array[1] == 0x84){
+            }
+            else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_LOGON){
+                
+                if(delegateLogon != nil){
+                    if(array[Int(bleProtocol.LOGON_RESULT_OFFSET)] == bleProtocol.STATUS_CODE_SUCCESS){
+                        delegateLogon.success()
+                    }
+                    else
+                    {
+                        delegate.showError("Sai mật khẩu")
+                    }
+                }
+            }
+            else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_READSTATUS){
                 if(delegateStatus != nil && array.count >= 10){
                     delegateStatus.updateStatus(array[7], cmd2: array[8], cmd3: array[9],cmd4: array[10])
                 }
-            }else if(array[1] == 0x85){
+            }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_CHANGEPIN){
                 if(array[3] == 0){
                     delegateChangePass.success()
                 }else{
@@ -424,39 +438,14 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     
                 }
 
-            }else if(array[1] == 0x86){
+            }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_RENAME){
                 if(array[3] == 0){
                     delegateRename.rename(newName)
                 }else{
                     delegateRename.error("Đổi tên không thành công")
                     
                 }
-            }else if(array[1] == 0x88){
-                showNotifycation("Cảnh báo chế độ rung")
-                
-            }else if(array[1] == 0x81){
-
-                if(array[3] == 0){
-                    print("Logon success")
-                    readStatus()
-                }else {
-                    print("Fail to logon")
-                    delegateStatus.logonerror()
-                }
-
-            }else if(array[1] == 0x8D){
-                
-                if( delegateLocation != nil &&  array.count == 12){
-                    
-                    let turnOn = array[7] == 1 ? true : false
-                    delegateLocation.updateLocation(status: turnOn, rssi_current: array[8], rssi_turnOn: array[9], rssi_turnOff: array[10], time: 0x7F)
-                }else if (delegateLocation != nil &&  array.count == 13){
-                    let turnOn = array[7] == 1 ? true : false
-                    delegateLocation.updateLocation(status: turnOn, rssi_current: array[8], rssi_turnOn: array[9], rssi_turnOff: array[10], time: array[11])
-                
-                }
-                
-            }else if(array[1] == 0x8F){
+            }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_VERSION){
                 
                 if ( delegateVersion != nil &&  array.count > 5){
                     
@@ -468,11 +457,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     delegateVersion.updateVersion(version: xmlStr)
                     
                 }
-                
-                
-                
-                
-                
+
             }
             
             print(array)

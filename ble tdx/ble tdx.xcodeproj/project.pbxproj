@@ -16,8 +16,9 @@
 		2976ED2720847721007779BB /* iky_smartkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED2620847721007779BB /* iky_smartkeyTests.swift */; };
 		2976ED3220847721007779BB /* iky_smartkeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED3120847721007779BB /* iky_smartkeyUITests.swift */; };
 		2976ED562084A8E8007779BB /* DeviceInfTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED552084A8E8007779BB /* DeviceInfTableView.swift */; };
-		29C2763F208982E6005EDC44 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C2763420898055005EDC44 /* CryptoSwift.framework */; };
-		29C27640208982E6005EDC44 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29C2763420898055005EDC44 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		29B9198520B7A5FF00F7D967 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */; };
+		29B9198620B7A60800F7D967 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9197C20B7A5EC00F7D967 /* CryptoSwift.framework */; };
+		29B9198720B7A60800F7D967 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9197C20B7A5EC00F7D967 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29C276472089A1E1005EDC44 /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C276462089A1E1005EDC44 /* RenameViewController.swift */; };
 		29C2764B2089A4F6005EDC44 /* ChangePassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */; };
 		29C2764D2089A528005EDC44 /* ChangeBikeInfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2764C2089A528005EDC44 /* ChangeBikeInfViewController.swift */; };
@@ -25,7 +26,6 @@
 		29C75B8A20883F3800A069F2 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C75B8920883F3700A069F2 /* BaseVC.swift */; };
 		29C75B8C20883F9200A069F2 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C75B8B20883F9200A069F2 /* ControlViewController.swift */; };
 		29C75B8E2088463700A069F2 /* ScanDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C75B8D2088463700A069F2 /* ScanDeviceViewController.swift */; };
-		29C75BA82088580100A069F2 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C75BA2208857B000A069F2 /* libMBProgressHUD.a */; };
 		29E6A2BB20B6AD4B00B90B7D /* SymmetricCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2BA20B6AD4B00B90B7D /* SymmetricCryptor.swift */; };
 		29E6A2BD20B6AD5200B90B7D /* BLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2BC20B6AD5200B90B7D /* BLE.swift */; };
 		29E6A2BF20B6AD5700B90B7D /* BLEProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2BE20B6AD5700B90B7D /* BLEProtocol.swift */; };
@@ -48,68 +48,68 @@
 			remoteGlobalIDString = 2976ED0D2084771E007779BB;
 			remoteInfo = iky.smartkey;
 		};
-		29C2763320898055005EDC44 /* PBXContainerItemProxy */ = {
+		29B9196D20B7A5E100F7D967 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE45519693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		29C2763520898055005EDC44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75211F92207249D8004E41F8;
-			remoteInfo = "CryptoSwift-TestHostApp";
-		};
-		29C2763720898055005EDC44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE46019693E190098E6F3;
-			remoteInfo = Tests;
-		};
-		29C2763920898055005EDC44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
-			remoteInfo = TestsPerformance;
-		};
-		29C2763B20898055005EDC44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
-			remoteInfo = "TestsPerformance-iOS";
-		};
-		29C27641208982E6005EDC44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 754BE45419693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		29C75BA1208857B000A069F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29C75B9B208857B000A069F2 /* MBProgressHUD.xcodeproj */;
+			containerPortal = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D286A7491518C70F00E13FB8;
 			remoteInfo = "MBProgressHUD Static Library";
 		};
-		29C75BA3208857B000A069F2 /* PBXContainerItemProxy */ = {
+		29B9196F20B7A5E100F7D967 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29C75B9B208857B000A069F2 /* MBProgressHUD.xcodeproj */;
+			containerPortal = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1D104D7A1ACA36CC00973364;
 			remoteInfo = "MBProgressHUD Framework";
 		};
-		29C75BA5208857B000A069F2 /* PBXContainerItemProxy */ = {
+		29B9197120B7A5E100F7D967 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29C75B9B208857B000A069F2 /* MBProgressHUD.xcodeproj */;
+			containerPortal = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1777D3DF1D757AF50037C7F1;
 			remoteInfo = "MBProgressHUD Framework tvOS";
+		};
+		29B9197B20B7A5EC00F7D967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		29B9197D20B7A5EC00F7D967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75211F92207249D8004E41F8;
+			remoteInfo = "CryptoSwift-TestHostApp";
+		};
+		29B9197F20B7A5EC00F7D967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		29B9198120B7A5EC00F7D967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
+			remoteInfo = TestsPerformance;
+		};
+		29B9198320B7A5EC00F7D967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
+			remoteInfo = "TestsPerformance-iOS";
+		};
+		29B9198820B7A60800F7D967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -120,7 +120,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				29C27640208982E6005EDC44 /* CryptoSwift.framework in Embed Frameworks */,
+				29B9198720B7A60800F7D967 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +143,8 @@
 		2976ED3120847721007779BB /* iky_smartkeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iky_smartkeyUITests.swift; sourceTree = "<group>"; };
 		2976ED3320847721007779BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2976ED552084A8E8007779BB /* DeviceInfTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfTableView.swift; sourceTree = "<group>"; };
-		29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
+		29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		29C276462089A1E1005EDC44 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
 		29C2764C2089A528005EDC44 /* ChangeBikeInfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBikeInfViewController.swift; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 		29C75B8920883F3700A069F2 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		29C75B8B20883F9200A069F2 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		29C75B8D2088463700A069F2 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
-		29C75B9B208857B000A069F2 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		29E6A2BA20B6AD4B00B90B7D /* SymmetricCryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmetricCryptor.swift; sourceTree = "<group>"; };
 		29E6A2BC20B6AD5200B90B7D /* BLE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLE.swift; sourceTree = "<group>"; };
 		29E6A2BE20B6AD5700B90B7D /* BLEProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEProtocol.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C75BA82088580100A069F2 /* libMBProgressHUD.a in Frameworks */,
-				29C2763F208982E6005EDC44 /* CryptoSwift.framework in Frameworks */,
+				29B9198520B7A5FF00F7D967 /* libMBProgressHUD.a in Frameworks */,
+				29B9198620B7A60800F7D967 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +194,7 @@
 				2976ED2520847721007779BB /* ble tdxTests */,
 				2976ED3020847721007779BB /* ble tdxUITests */,
 				2976ED0F2084771E007779BB /* Products */,
-				29C2763D20898075005EDC44 /* Frameworks */,
+				29B9196020B7A3BD00F7D967 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,42 +279,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		29C2762C20898055005EDC44 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				29C2763420898055005EDC44 /* CryptoSwift.framework */,
-				29C2763620898055005EDC44 /* CryptoSwift-TestHostApp.app */,
-				29C2763820898055005EDC44 /* Tests.xctest */,
-				29C2763A20898055005EDC44 /* TestsPerformance.xctest */,
-				29C2763C20898055005EDC44 /* TestsPerformanceDevice.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		29C2763D20898075005EDC44 /* Frameworks */ = {
+		29B9196020B7A3BD00F7D967 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		29B9196820B7A5E000F7D967 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */,
+				29B9197020B7A5E100F7D967 /* MBProgressHUD.framework */,
+				29B9197220B7A5E100F7D967 /* MBProgressHUD.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B9197420B7A5EC00F7D967 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29B9197C20B7A5EC00F7D967 /* CryptoSwift.framework */,
+				29B9197E20B7A5EC00F7D967 /* CryptoSwift-TestHostApp.app */,
+				29B9198020B7A5EC00F7D967 /* Tests.xctest */,
+				29B9198220B7A5EC00F7D967 /* TestsPerformance.xctest */,
+				29B9198420B7A5EC00F7D967 /* TestsPerformanceDevice.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		29C75B322088383800A069F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */,
-				29C75B9B208857B000A069F2 /* MBProgressHUD.xcodeproj */,
+				29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */,
+				29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		29C75B9C208857B000A069F2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				29C75BA2208857B000A069F2 /* libMBProgressHUD.a */,
-				29C75BA4208857B000A069F2 /* MBProgressHUD.framework */,
-				29C75BA6208857B000A069F2 /* MBProgressHUD.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,7 +332,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				29C27642208982E6005EDC44 /* PBXTargetDependency */,
+				29B9198920B7A60800F7D967 /* PBXTargetDependency */,
 			);
 			name = "ble tdx";
 			productName = iky.smartkey;
@@ -411,12 +411,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 29C2762C20898055005EDC44 /* Products */;
-					ProjectRef = 29C2762B20898055005EDC44 /* CryptoSwift.xcodeproj */;
+					ProductGroup = 29B9197420B7A5EC00F7D967 /* Products */;
+					ProjectRef = 29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */;
 				},
 				{
-					ProductGroup = 29C75B9C208857B000A069F2 /* Products */;
-					ProjectRef = 29C75B9B208857B000A069F2 /* MBProgressHUD.xcodeproj */;
+					ProductGroup = 29B9196820B7A5E000F7D967 /* Products */;
+					ProjectRef = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -429,61 +429,61 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		29C2763420898055005EDC44 /* CryptoSwift.framework */ = {
+		29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMBProgressHUD.a;
+			remoteRef = 29B9196D20B7A5E100F7D967 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		29B9197020B7A5E100F7D967 /* MBProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MBProgressHUD.framework;
+			remoteRef = 29B9196F20B7A5E100F7D967 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		29B9197220B7A5E100F7D967 /* MBProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MBProgressHUD.framework;
+			remoteRef = 29B9197120B7A5E100F7D967 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		29B9197C20B7A5EC00F7D967 /* CryptoSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CryptoSwift.framework;
-			remoteRef = 29C2763320898055005EDC44 /* PBXContainerItemProxy */;
+			remoteRef = 29B9197B20B7A5EC00F7D967 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		29C2763620898055005EDC44 /* CryptoSwift-TestHostApp.app */ = {
+		29B9197E20B7A5EC00F7D967 /* CryptoSwift-TestHostApp.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = "CryptoSwift-TestHostApp.app";
-			remoteRef = 29C2763520898055005EDC44 /* PBXContainerItemProxy */;
+			remoteRef = 29B9197D20B7A5EC00F7D967 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		29C2763820898055005EDC44 /* Tests.xctest */ = {
+		29B9198020B7A5EC00F7D967 /* Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = Tests.xctest;
-			remoteRef = 29C2763720898055005EDC44 /* PBXContainerItemProxy */;
+			remoteRef = 29B9197F20B7A5EC00F7D967 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		29C2763A20898055005EDC44 /* TestsPerformance.xctest */ = {
+		29B9198220B7A5EC00F7D967 /* TestsPerformance.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = TestsPerformance.xctest;
-			remoteRef = 29C2763920898055005EDC44 /* PBXContainerItemProxy */;
+			remoteRef = 29B9198120B7A5EC00F7D967 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		29C2763C20898055005EDC44 /* TestsPerformanceDevice.xctest */ = {
+		29B9198420B7A5EC00F7D967 /* TestsPerformanceDevice.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			name = TestsPerformanceDevice.xctest;
 			path = "TestsPerformance-iOS.xctest";
-			remoteRef = 29C2763B20898055005EDC44 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		29C75BA2208857B000A069F2 /* libMBProgressHUD.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMBProgressHUD.a;
-			remoteRef = 29C75BA1208857B000A069F2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		29C75BA4208857B000A069F2 /* MBProgressHUD.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MBProgressHUD.framework;
-			remoteRef = 29C75BA3208857B000A069F2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		29C75BA6208857B000A069F2 /* MBProgressHUD.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MBProgressHUD.framework;
-			remoteRef = 29C75BA5208857B000A069F2 /* PBXContainerItemProxy */;
+			remoteRef = 29B9198320B7A5EC00F7D967 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -568,10 +568,10 @@
 			target = 2976ED0D2084771E007779BB /* ble tdx */;
 			targetProxy = 2976ED2E20847721007779BB /* PBXContainerItemProxy */;
 		};
-		29C27642208982E6005EDC44 /* PBXTargetDependency */ = {
+		29B9198920B7A60800F7D967 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CryptoSwift;
-			targetProxy = 29C27641208982E6005EDC44 /* PBXContainerItemProxy */;
+			targetProxy = 29B9198820B7A60800F7D967 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -727,7 +727,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iky/Desktop/git/iky-smartkey-mobile/ios/iky.smartkey/iky.smartkey/Bridge-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iky/Desktop/git/ios-tdx/ble tdx/ble tdx/Bridge-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -751,7 +751,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iky/Desktop/git/iky-smartkey-mobile/ios/iky.smartkey/iky.smartkey/Bridge-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iky/Desktop/git/ios-tdx/ble tdx/ble tdx/Bridge-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

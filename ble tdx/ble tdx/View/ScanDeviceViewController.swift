@@ -1,10 +1,4 @@
-//
-//  ScanDeviceViewController.swift
-//  iky.smartkey
-//
-//  Created by iky on 4/19/18.
-//  Copyright © 2018 iky. All rights reserved.
-//
+
 
 import UIKit
 import CoreBluetooth

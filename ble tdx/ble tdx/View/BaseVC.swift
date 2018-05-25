@@ -1,10 +1,4 @@
-//
-//  SetupVC.swift
-//  BIKE
-//
-//  Created by Ann on 3/17/16.
-//  Copyright © 2016 Ann. All rights reserved.
-//
+
 
 import UIKit
 
