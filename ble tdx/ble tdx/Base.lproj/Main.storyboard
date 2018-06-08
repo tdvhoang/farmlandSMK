@@ -52,7 +52,7 @@
                                 <rect key="frame" x="187.5" y="64" width="187.5" height="267"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-0c-1Q0">
-                                        <rect key="frame" x="43.5" y="82.5" width="100" height="100"/>
+                                        <rect key="frame" x="43.5" y="83.5" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="DGI-vv-hWD"/>
                                             <constraint firstAttribute="height" constant="100" id="bqV-2u-njv"/>
@@ -272,8 +272,28 @@
                                             <segue destination="ixb-Th-upW" kind="push" id="UF2-gG-ORX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dFg-8f-eXf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="M8q-Pv-FlH">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8q-Pv-FlH" id="JRG-vN-RgA">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nhập mã SMK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-69-W9p">
+                                                    <rect key="frame" x="16" y="12" width="109" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Gu6-jO-1wB" kind="push" id="7p0-FY-RbQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dFg-8f-eXf">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFg-8f-eXf" id="N2R-yK-xF7">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -373,6 +393,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsw-IA-fIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2559" y="50"/>
+        </scene>
+        <!--ChangeSMK View Controller-->
+        <scene sceneID="q6w-VF-0xO">
+            <objects>
+                <viewController id="Gu6-jO-1wB" customClass="ChangeSMKViewController" customModule="ble_tdx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ysJ-un-CHA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mã hiện tại: 123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSK-mg-2Rn">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập mã mới" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sap-gA-uZ3">
+                                <rect key="frame" x="16" y="126" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTs-RQ-XMA">
+                                <rect key="frame" x="37.5" y="182" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="iN7-LQ-a8f"/>
+                                    <constraint firstAttribute="height" constant="50" id="x3l-ct-Zgw"/>
+                                </constraints>
+                                <state key="normal" image="bg_btnsave"/>
+                                <connections>
+                                    <action selector="OnclickSave:" destination="Gu6-jO-1wB" eventType="touchUpInside" id="ind-nt-mJ0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cTs-RQ-XMA" firstAttribute="centerX" secondItem="wzt-h9-0bi" secondAttribute="centerX" id="Bf0-vj-jwC"/>
+                            <constraint firstItem="nSK-mg-2Rn" firstAttribute="top" secondItem="wzt-h9-0bi" secondAttribute="top" constant="16" id="GFI-EC-gdA"/>
+                            <constraint firstItem="cTs-RQ-XMA" firstAttribute="top" secondItem="Sap-gA-uZ3" secondAttribute="bottom" constant="26" id="JBS-X0-MMw"/>
+                            <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="Sap-gA-uZ3" secondAttribute="trailing" constant="16" id="K4F-xL-Jox"/>
+                            <constraint firstItem="nSK-mg-2Rn" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="ZV9-TM-irQ"/>
+                            <constraint firstItem="Sap-gA-uZ3" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="pRG-TO-zLu"/>
+                            <constraint firstItem="Sap-gA-uZ3" firstAttribute="top" secondItem="nSK-mg-2Rn" secondAttribute="bottom" constant="16" id="tis-fK-m3N"/>
+                            <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="nSK-mg-2Rn" secondAttribute="trailing" constant="16" id="uWr-Z0-LYj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wzt-h9-0bi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qnp-NX-j5G"/>
+                    <connections>
+                        <outlet property="txtCurrPINSMK" destination="nSK-mg-2Rn" id="Qk8-AZ-v63"/>
+                        <outlet property="txtNewPINSMK" destination="Sap-gA-uZ3" id="ojG-kV-xed"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNG-jm-IMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2557.5999999999999" y="745.27736131934034"/>
         </scene>
         <!--Đổi tên thiết bị-->
         <scene sceneID="HSu-Tq-Yc5">
@@ -531,6 +606,6 @@
         <image name="icon_infor" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jIN-8h-sPL"/>
+        <segue reference="QJG-s8-yaF"/>
     </inferredMetricsTieBreakers>
 </document>

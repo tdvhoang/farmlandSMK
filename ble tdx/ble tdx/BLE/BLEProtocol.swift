@@ -15,11 +15,12 @@ class BLEProtocol: NSObject {
 	let OPCODE_CHANGEPIN : UInt8 = 0x7
     let OPCODE_RENAME : UInt8 = 0x8
 	let OPCODE_READSTATUS : UInt8 = 0x9
-    
-    
+    let OPCODE_READSMK : UInt8 = 0xA
+    let OPCODE_WRITESMK : UInt8 = 0xB
     
 	let OPCODE_OFFSET : UInt8 = 0x01
     let LENGTH_OFFSET : UInt8 =  0x02
+    let RESULT_OFFSET : UInt8 = 0x03
     let DATA_OFFSET : UInt8 = 0x07
     let LOGON_RESULT_OFFSET : UInt8 = 0x03
     
@@ -61,6 +62,7 @@ class BLEProtocol: NSObject {
     func rename(_ newName : String) -> [UInt8]{
         return generatedCmd(OPCODE_RENAME, pin : pin, bytesData: [UInt8](newName.utf8))
     }
+    
     func changepass(_ newPass: String) -> [UInt8] {
         let bytes = encrypt(newPass)
         return generatedCmd(OPCODE_CHANGEPIN, pin : pin, bytesData: bytes)
@@ -68,6 +70,14 @@ class BLEProtocol: NSObject {
     
     func readStatus() -> [UInt8]{
         return generatedCmd(OPCODE_READSTATUS, pin: pin, bytesData: [0x1])
+    }
+    
+    func readSMK() -> [UInt8]{
+        return generatedCmd(OPCODE_READSMK, pin: pin, bytesData: [0x1])
+    }
+    
+    func writeSMK(_ newSMK : String) -> [UInt8]{
+        return generatedCmd(OPCODE_WRITESMK, pin : pin, bytesData: [UInt8](newSMK.utf8))
     }
     
     func encrypt(_ newPass: String) -> [UInt8]{

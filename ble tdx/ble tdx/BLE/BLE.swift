@@ -51,6 +51,15 @@ protocol BLEDiscoverPeripheral{
     func discover(_ peripheral : CBPeripheral, rssi: NSNumber)
 }
 
+
+protocol BLESMKDelegate{
+    
+    func update(_ currSMK : String)
+    func success(_ message : String)
+    func error(_ message : String)
+    
+}
+
 class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     let UARTSERVICEUUIDSTRING = CBUUID(string:"6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
@@ -71,6 +80,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var delegateLogon : BLELogonDelegate!
     var delegateChangePass : BLEChangePassDelegate!
     var delegaatePeripheral : BLEDiscoverPeripheral!
+    var delegateSMK : BLESMKDelegate!
     
     var user : User!
     
@@ -220,6 +230,21 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         
     }
 
+    func readSMK(){
+        send(bleProtocol.readSMK())
+    }
+    
+    var newSMK : String!
+    func writeSMK(_ newPinSMK : String) -> Void {
+        if(newPinSMK.count == 9){
+            self.newSMK = newPinSMK
+            send(bleProtocol.writeSMK(newPinSMK))
+        }else{
+            delegateSMK.error("PIN phải bao gồm 9 chữ số")
+            
+        }
+    }
+    
     var newName : String!
     func rename(_ newName : String) -> Void {
         if(newName.count <= 10){
@@ -458,6 +483,37 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     
                 }
 
+            }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_READSMK){
+                
+                //[202, 10, 13, 115, 125, 194, 5, 0, 0, 0, 0, 255, 255, 255, 255, 255, 178]
+                if(array.count >= 17)
+                {
+                    var bytes : [UInt8] = [UInt8]()
+                    
+                    for ii in 7..<count-1 {
+                        bytes.append(array[ii])
+                        
+                    }
+                    if let str = String(bytes: bytes, encoding: String.Encoding.utf8) {
+                        print(str)
+                        if ( delegateSMK != nil)
+                        {
+                            delegateSMK.update(str)
+                        }
+                    } else {
+                        print("not a valid UTF-8 sequence")
+                    }
+                }
+            }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_WRITESMK){
+                
+                if ( delegateSMK != nil && array.count > bleProtocol.RESULT_OFFSET)
+                {
+                    if(array[Int(bleProtocol.RESULT_OFFSET)] == 0){
+                        delegateSMK.success(self.newSMK)
+                    }else{
+                        delegateSMK.error("Đổi PIN SMK không thành công")
+                    }
+                }
             }
             
             print(array)

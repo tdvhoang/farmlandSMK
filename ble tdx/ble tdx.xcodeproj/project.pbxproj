@@ -16,6 +16,7 @@
 		2976ED2720847721007779BB /* iky_smartkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED2620847721007779BB /* iky_smartkeyTests.swift */; };
 		2976ED3220847721007779BB /* iky_smartkeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED3120847721007779BB /* iky_smartkeyUITests.swift */; };
 		2976ED562084A8E8007779BB /* DeviceInfTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED552084A8E8007779BB /* DeviceInfTableView.swift */; };
+		2977C14D20CA173E00876E04 /* ChangeSMKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */; };
 		29B9198520B7A5FF00F7D967 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */; };
 		29B9198620B7A60800F7D967 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9197C20B7A5EC00F7D967 /* CryptoSwift.framework */; };
 		29B9198720B7A60800F7D967 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9197C20B7A5EC00F7D967 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -143,6 +144,7 @@
 		2976ED3120847721007779BB /* iky_smartkeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iky_smartkeyUITests.swift; sourceTree = "<group>"; };
 		2976ED3320847721007779BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2976ED552084A8E8007779BB /* DeviceInfTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfTableView.swift; sourceTree = "<group>"; };
+		2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSMKViewController.swift; sourceTree = "<group>"; };
 		29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		29B9197320B7A5EC00F7D967 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		29C276462089A1E1005EDC44 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */,
 				29C2764C2089A528005EDC44 /* ChangeBikeInfViewController.swift */,
 				29C276502089E316005EDC44 /* VersionViewController.swift */,
+				2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				29C75B8E2088463700A069F2 /* ScanDeviceViewController.swift in Sources */,
 				2976ED142084771E007779BB /* ViewController.swift in Sources */,
 				29E6A2C320B6ADA100B90B7D /* ScannedPeripheral.swift in Sources */,
+				2977C14D20CA173E00876E04 /* ChangeSMKViewController.swift in Sources */,
 				2976ED122084771E007779BB /* AppDelegate.swift in Sources */,
 				2976ED562084A8E8007779BB /* DeviceInfTableView.swift in Sources */,
 				29C276472089A1E1005EDC44 /* RenameViewController.swift in Sources */,

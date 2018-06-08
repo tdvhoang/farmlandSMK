@@ -16,6 +16,7 @@ class User: NSObject {
     var namedevice: String!
     var modelBike: String!
     var numberBike: String!
+    var pinSMK: String!
     override init() {
     	let userDefaults = UserDefaults.standard
     	pin = userDefaults.string(forKey: "PIN") 
@@ -25,6 +26,7 @@ class User: NSObject {
     	namedevice = userDefaults.string(forKey: "NAMEDEVICE")
     	modelBike = userDefaults.string(forKey: "MODELBIKE") 
     	numberBike = userDefaults.string(forKey: "NUMBERBIKE")
+        pinSMK = userDefaults.string(forKey: "PINSMK")
         
         if(pin == nil){
             pin = "8888"
@@ -40,6 +42,9 @@ class User: NSObject {
         }
         if numberBike == nil {
             numberBike = "53H - 89289"
+        }
+        if pinSMK == nil {
+            pinSMK = "123456789"
         }
     }
     
@@ -58,6 +63,7 @@ class User: NSObject {
     	userDefaults.setValue(namedevice, forKey: "NAMEDEVICE" )
     	userDefaults.setValue(modelBike, forKey: "MODELBIKE" )
     	userDefaults.setValue(numberBike, forKey: "NUMBERBIKE" )
+        userDefaults.setValue(pinSMK, forKey: "PINSMK" )
     	userDefaults.synchronize()
     }
 
@@ -68,7 +74,6 @@ class User: NSObject {
     	} else {
     		return false
     	}
-        
     }
 
 
