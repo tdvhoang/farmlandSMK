@@ -54,8 +54,8 @@ protocol BLEDiscoverPeripheral{
 
 protocol BLESMKDelegate{
     
-    func update(_ currSMK : String)
-    func success(_ message : String)
+    func update(_ currSMK : String, time: String)
+    func success(_ message : String, time: String)
     func error(_ message : String)
     
 }
@@ -83,6 +83,8 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var delegateSMK : BLESMKDelegate!
     
     var user : User!
+    var pinSMK : String!
+    var timeSMK: String!
     
     class var sharedInstance: BLE {
         struct Static {
@@ -234,14 +236,14 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         send(bleProtocol.readSMK())
     }
     
-    var newSMK : String!
-    func writeSMK(_ newPinSMK : String) -> Void {
+    
+    func writeSMK(_ newPinSMK : String, time : String) -> Void {
+        timeSMK = time
         if(newPinSMK.count == 9){
-            self.newSMK = newPinSMK
-            send(bleProtocol.writeSMK(newPinSMK))
+            self.pinSMK = newPinSMK
+            send(bleProtocol.writeSMK(newPinSMK + time))
         }else{
             delegateSMK.error("PIN phải bao gồm 9 chữ số")
-            
         }
     }
     
@@ -252,7 +254,6 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             send(bleProtocol.rename(newName))
         }else{
             delegateRename.error("Tên phải ít hơn 10 chữ")
-
         }
     }
     func changePass(_ newPass: String){
@@ -486,22 +487,43 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_READSMK){
                 
                 //[202, 10, 13, 115, 125, 194, 5, 0, 0, 0, 0, 255, 255, 255, 255, 255, 178]
-                if(array.count >= 17)
+                if(array.count >= 19)
                 {
                     var bytes : [UInt8] = [UInt8]()
                     
-                    for ii in 7..<count-1 {
+                    for ii in 7..<count-3 {
                         bytes.append(array[ii])
                         
                     }
-                    if let str = String(bytes: bytes, encoding: String.Encoding.utf8) {
-                        print(str)
+                    var bOK = true
+                    
+                    
+                    var bytesTime : [UInt8] = [UInt8]()
+                    
+                    bytesTime.append(array[array.count - 3])
+                    bytesTime.append(array[array.count - 2])
+                    
+                    if let strTime = String(bytes: bytesTime, encoding: String.Encoding.utf8) {
+                        print(strTime)
+                        timeSMK = strTime
+                    } else {
+                        bOK = false
+                    }
+                    
+                    if let strPIN = String(bytes: bytes, encoding: String.Encoding.utf8) {
+                        print(strPIN)
+                        pinSMK = strPIN
+                        
+                    } else {
+                        bOK = false
+                    }
+                    
+                    if(bOK == true)
+                    {
                         if ( delegateSMK != nil)
                         {
-                            delegateSMK.update(str)
+                            delegateSMK.update(pinSMK, time: timeSMK)
                         }
-                    } else {
-                        print("not a valid UTF-8 sequence")
                     }
                 }
             }else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_WRITESMK){
@@ -509,7 +531,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 if ( delegateSMK != nil && array.count > bleProtocol.RESULT_OFFSET)
                 {
                     if(array[Int(bleProtocol.RESULT_OFFSET)] == 0){
-                        delegateSMK.success(self.newSMK)
+                        delegateSMK.success(self.pinSMK, time: self.timeSMK)
                     }else{
                         delegateSMK.error("Đổi PIN SMK không thành công")
                     }

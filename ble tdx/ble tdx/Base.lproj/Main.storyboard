@@ -415,7 +415,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTs-RQ-XMA">
-                                <rect key="frame" x="37.5" y="182" width="300" height="50"/>
+                                <rect key="frame" x="37" y="228" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="iN7-LQ-a8f"/>
                                     <constraint firstAttribute="height" constant="50" id="x3l-ct-Zgw"/>
@@ -425,14 +425,23 @@
                                     <action selector="OnclickSave:" destination="Gu6-jO-1wB" eventType="touchUpInside" id="ind-nt-mJ0"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Thời gian" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z8X-mM-Vgv">
+                                <rect key="frame" x="16" y="172" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="z8X-mM-Vgv" secondAttribute="trailing" constant="16" id="2yM-XA-xPa"/>
                             <constraint firstItem="cTs-RQ-XMA" firstAttribute="centerX" secondItem="wzt-h9-0bi" secondAttribute="centerX" id="Bf0-vj-jwC"/>
                             <constraint firstItem="nSK-mg-2Rn" firstAttribute="top" secondItem="wzt-h9-0bi" secondAttribute="top" constant="16" id="GFI-EC-gdA"/>
-                            <constraint firstItem="cTs-RQ-XMA" firstAttribute="top" secondItem="Sap-gA-uZ3" secondAttribute="bottom" constant="26" id="JBS-X0-MMw"/>
                             <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="Sap-gA-uZ3" secondAttribute="trailing" constant="16" id="K4F-xL-Jox"/>
+                            <constraint firstItem="z8X-mM-Vgv" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="Rag-2i-kWa"/>
                             <constraint firstItem="nSK-mg-2Rn" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="ZV9-TM-irQ"/>
+                            <constraint firstItem="z8X-mM-Vgv" firstAttribute="top" secondItem="Sap-gA-uZ3" secondAttribute="bottom" constant="16" id="b7p-Lx-5hD"/>
+                            <constraint firstItem="cTs-RQ-XMA" firstAttribute="top" secondItem="z8X-mM-Vgv" secondAttribute="bottom" constant="26" id="ncm-Kh-5M8"/>
                             <constraint firstItem="Sap-gA-uZ3" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="pRG-TO-zLu"/>
                             <constraint firstItem="Sap-gA-uZ3" firstAttribute="top" secondItem="nSK-mg-2Rn" secondAttribute="bottom" constant="16" id="tis-fK-m3N"/>
                             <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="nSK-mg-2Rn" secondAttribute="trailing" constant="16" id="uWr-Z0-LYj"/>
@@ -443,6 +452,7 @@
                     <connections>
                         <outlet property="txtCurrPINSMK" destination="nSK-mg-2Rn" id="Qk8-AZ-v63"/>
                         <outlet property="txtNewPINSMK" destination="Sap-gA-uZ3" id="ojG-kV-xed"/>
+                        <outlet property="txtTime" destination="z8X-mM-Vgv" id="696-bO-pWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNG-jm-IMe" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -29,8 +29,6 @@ class ChangeBikeInfViewController: BaseVC {
         }else if(title == "Loại xe"){
             ble.user.modelBike = txtInfor.text
             
-        }else if(title == "Biển số"){
-            ble.user.numberBike = txtInfor.text
         }
         ble.user.saveValue()
     }
