@@ -86,19 +86,14 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var pinSMK : String!
     var timeSMK: String!
     
-    class var sharedInstance: BLE {
-        struct Static {
-            static let instance: BLE = BLE()
-        }
-        return Static.instance
-    }
+    static let `shared` = BLE()
     
     // MARK: init
-    override init (){
+    private override init (){
         super.init()
         
         bleProtocol = BLEProtocol()
-        user = User()
+        user = User.shared
         bleProtocol.pin = user.pin
         
         self.centralManager = CBCentralManager(delegate: self,queue: nil,options: nil)

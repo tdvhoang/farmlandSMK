@@ -32,11 +32,8 @@ class ChangePassWordViewController: BaseVC, BLEChangePassDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ble.delegateChangePass = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.txtOldPassword.becomeFirstResponder()
     }
     
 

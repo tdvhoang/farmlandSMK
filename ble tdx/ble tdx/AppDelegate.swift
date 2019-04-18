@@ -13,10 +13,29 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var lastActiveDate = Date()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.window = UIWindow()
+        var showed = false
+        if let passCode = User.shared.passCode {
+            if passCode.count == 4 {
+                if let inputPassCodeNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InputPassCodeNavigationController") as? UINavigationController, let inputPassCodeVC = inputPassCodeNav.topViewController as? InputPassCodeViewController {
+                    inputPassCodeVC.type = .InputPassCode
+                    self.window?.rootViewController = inputPassCodeNav
+                    showed = true
+                }
+            }
+        }
+        if showed == false {
+            if let rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() {
+                self.window?.rootViewController = rootVC
+            }
+        }
+        
+        self.window?.makeKeyAndVisible()
         return true
     }
 
@@ -28,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        self.lastActiveDate = Date()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -50,6 +71,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         
     }
-
 }
-

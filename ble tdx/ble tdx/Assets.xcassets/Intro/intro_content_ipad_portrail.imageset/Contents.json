@@ -6,11 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "iphone xs mas.jpg",
+      "filename" : "intro_content_ipad_portrail@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "intro_content_ipad_portrail@3x.png",
       "scale" : "3x"
     }
   ],

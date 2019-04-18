@@ -39,10 +39,7 @@ class RenameViewController: BaseVC,BLERenameDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ble.delegateRename = self
+        
+        self.txtNewName.becomeFirstResponder()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }

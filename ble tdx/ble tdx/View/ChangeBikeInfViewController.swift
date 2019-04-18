@@ -18,10 +18,6 @@ class ChangeBikeInfViewController: BaseVC {
         saveData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     func saveData() -> Void {
         if(title == "Tên người dùng"){
             ble.user.username = txtInfor.text

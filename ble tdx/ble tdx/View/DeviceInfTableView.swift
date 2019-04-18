@@ -29,7 +29,7 @@ class DeviceInfTableView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ble = BLE.sharedInstance
+        ble = BLE.shared
         //ble.delegateReadPINSK = self
         
         if(ble.isConnected()){
@@ -38,12 +38,9 @@ class DeviceInfTableView: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         updateInfor()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     

@@ -53,7 +53,7 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         self.edgesForExtendedLayout = UIRectEdge()
-        ble = BLE.sharedInstance
+        ble = BLE.shared
         ble.delegaatePeripheral = self
         peripherals = [ScannedPeripheral]()
         tbPeripheral.delegate = self
@@ -84,11 +84,6 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
             timer.invalidate()
             timer = nil
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func getRSSIImage(_ rssi : Int) -> UIImage {

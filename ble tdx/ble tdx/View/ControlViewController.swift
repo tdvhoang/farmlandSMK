@@ -144,16 +144,13 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
         
         if(ble.isConnected()){
             ble.readStatus()
-            
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         print("Status viewDidAppear")
         //updateInfor()
         imgConnect.image = UIImage(named:"ic_disconnect")
@@ -190,5 +187,22 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
         self.performSegue(withIdentifier: "scandevice", sender: self)
     }
     
-    
+    @objc func handleNotification(_ noti: NSNotification) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if Date().timeIntervalSince(appDelegate.lastActiveDate) > 5 {
+                if let passCode = User.shared.passCode {
+                    if passCode.count == 4 {
+                        if let topVC = self.view.topMostController() {
+                            if (topVC is InputPassCodeViewController) == false {
+                                if let inputPassCodeNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InputPassCodeNavigationController") as? UINavigationController, let inputPassCodeVC = inputPassCodeNav.topViewController as? InputPassCodeViewController {
+                                    inputPassCodeVC.type = .InputPassCode
+                                    topVC.present(inputPassCodeNav, animated: true, completion: nil)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

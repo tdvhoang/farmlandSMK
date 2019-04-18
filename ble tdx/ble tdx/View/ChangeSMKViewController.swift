@@ -75,6 +75,8 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
         if(ble.isConnected()){
             ble.readSMK()
         }
+        
+        self.txtNewPINSMK.becomeFirstResponder()
     }
 
     
@@ -83,14 +85,8 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         updateUI()
-    }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func showAlert(_ message: String) {

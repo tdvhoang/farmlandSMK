@@ -9,16 +9,11 @@ class BaseVC: UIViewController, BLEDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ble = BLE.sharedInstance
+        ble = BLE.shared
         ble.delegate = self
 
         // Do any additional setup after loading the view.
 
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK BLE delegate
@@ -54,7 +49,6 @@ class BaseVC: UIViewController, BLEDelegate {
     }
     func hideLoading() {
         MBProgressHUD.hide(for: self.view, animated: true)
-        //MBProgressHUD.hideAllHUDs(for: view, animated: true)
     }
     
     

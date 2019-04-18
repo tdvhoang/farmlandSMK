@@ -8,7 +8,11 @@
 
 import UIKit
 
-class User: NSObject {
+private let UsePassCodeKey = "UsePassCode"
+private let PassCodeKey = "PassCode"
+private let UseTouchIDKey = "UseTouchID"
+
+class User {
     var pin : String!
     var address: String!
     var uuid : String!
@@ -17,7 +21,13 @@ class User: NSObject {
     var modelBike: String!
     var time: String!
     var pinSMK: String!
-    override init() {
+    var usePassCode: Bool = false
+    var passCode: String!
+    var useTouchID: Bool = false
+    
+    static let `shared` = User()
+    
+    private init() {
     	let userDefaults = UserDefaults.standard
     	pin = userDefaults.string(forKey: "PIN") 
     	address = userDefaults.string(forKey: "ADDRESS") 
@@ -27,6 +37,9 @@ class User: NSObject {
     	modelBike = userDefaults.string(forKey: "MODELBIKE")
         pinSMK = userDefaults.string(forKey: "PINSMK")
         time = userDefaults.string(forKey: "TIME")
+        self.usePassCode = userDefaults.bool(forKey: UsePassCodeKey)
+        self.passCode = userDefaults.string(forKey: PassCodeKey) ?? ""
+        self.useTouchID = userDefaults.bool(forKey: UseTouchIDKey)
         
         if(pin == nil){
             pin = "8888"
@@ -64,18 +77,13 @@ class User: NSObject {
     	userDefaults.setValue(modelBike, forKey: "MODELBIKE" )
     	userDefaults.setValue(time, forKey: "TIME" )
         userDefaults.setValue(pinSMK, forKey: "PINSMK" )
+        userDefaults.setValue(self.usePassCode, forKey: UsePassCodeKey)
+        userDefaults.setValue(self.passCode, forKey: PassCodeKey)
+        userDefaults.setValue(self.useTouchID, forKey: UseTouchIDKey)
     	userDefaults.synchronize()
     }
 
     func hasDevice() -> Bool {
-
-    	if (address != nil) {
-    		return true
-    	} else {
-    		return false
-    	}
+        return self.address != nil
     }
-
-
-
 }
