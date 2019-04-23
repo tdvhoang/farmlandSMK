@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LockAppSetting: UITableViewController {
     
@@ -14,6 +15,8 @@ class LockAppSetting: UITableViewController {
     @IBOutlet var lblUseTouchID: UILabel!
     @IBOutlet var switchUseTouchID: UISwitch!
     @IBOutlet var switchUsePassCode: UISwitch!
+    
+    private let laContext = LAContext()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +31,34 @@ class LockAppSetting: UITableViewController {
     }
     
     private func updateUI() {
+        var error: NSError?
+        var canUseBiometricAuthentication = self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        if #available(iOS 11.0, *) {
+            switch self.laContext.biometryType {
+            case .faceID:
+                self.lblUseTouchID.text = "Dùng Face ID"
+            case .touchID:
+                self.lblUseTouchID.text = "Dùng vân tay"
+            default:
+                self.lblUseTouchID.isEnabled = false
+                self.switchUseTouchID.isEnabled = false
+                self.switchUseTouchID.isOn = false
+                self.switchUseTouchID.isUserInteractionEnabled = false
+                canUseBiometricAuthentication = false
+            }
+        }
         self.switchUsePassCode.isOn = BLE.shared.user.usePassCode
         self.switchUseTouchID.isOn = BLE.shared.user.useTouchID
         if BLE.shared.user.usePassCode {
             self.lblChangePassCode.isEnabled = true
-            self.switchUseTouchID.isEnabled = true
-            self.lblUseTouchID.isEnabled = true
+            self.switchUseTouchID.isEnabled = canUseBiometricAuthentication
+            self.switchUseTouchID.isUserInteractionEnabled = canUseBiometricAuthentication
+            self.lblUseTouchID.isEnabled = canUseBiometricAuthentication
         }
         else {
             self.lblChangePassCode.isEnabled = false
             self.switchUseTouchID.isEnabled = false
+            self.switchUseTouchID.isUserInteractionEnabled = false
             self.lblUseTouchID.isEnabled = false
         }
     }
@@ -66,7 +87,8 @@ class LockAppSetting: UITableViewController {
             }
             
         case 2:
-            if BLE.shared.user.usePassCode {
+            var error: NSError?
+            if self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) && BLE.shared.user.usePassCode {
                 BLE.shared.user.useTouchID = !BLE.shared.user.useTouchID
                 BLE.shared.user.saveValue()
             }

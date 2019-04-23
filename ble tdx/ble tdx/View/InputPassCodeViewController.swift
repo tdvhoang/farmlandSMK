@@ -109,8 +109,9 @@ class InputPassCodeViewController: UIViewController {
                 }
             case .VerifyPassCode:
                 if let passCodeToVerify = self.passCodeToVerify, self.inputNumberAsString.caseInsensitiveCompare(passCodeToVerify) == .orderedSame {
+                    var error: NSError?
                     User.shared.usePassCode = true
-                    User.shared.useTouchID = true
+                    User.shared.useTouchID = self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
                     User.shared.passCode = self.inputNumberAsString
                     User.shared.saveValue()
                     self.navigationController?.dismiss(animated: true, completion: nil)
@@ -179,7 +180,7 @@ class InputPassCodeViewController: UIViewController {
     private func prepareForTouchID() {
         var error: NSError?
         if self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            self.laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Mở khoá bằng vân tay") { (success, error) in
+            self.laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Mở khoá ứng dụng") { (success, error) in
                 if success {
                     DispatchQueue.main.async {
                         UIApplication.shared.delegate?.window??.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
