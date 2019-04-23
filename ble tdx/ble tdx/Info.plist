@@ -19,11 +19,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>20190418.03</string>
+	<string>20190424.03</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Use bluetooth to connect with BLE device.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Mở khoá ứng dụng</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
