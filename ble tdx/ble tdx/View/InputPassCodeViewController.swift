@@ -179,11 +179,19 @@ class InputPassCodeViewController: UIViewController {
     //MARK: - Touch ID
     private func prepareForTouchID() {
         var error: NSError?
-        if self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            self.laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Mở khoá ứng dụng") { (success, error) in
-                if success {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.delegate?.window??.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                self.laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Mở khoá ứng dụng") { (success, error) in
+                    appDelegate.lastActiveDate = Date()
+                    if success {
+                        DispatchQueue.main.async {
+                            if (appDelegate.window?.rootViewController as? UINavigationController)?.topViewController is InputPassCodeViewController {
+                                appDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+                            }
+                            else {
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
                     }
                 }
             }
