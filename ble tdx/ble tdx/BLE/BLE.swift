@@ -9,55 +9,46 @@
 import UIKit
 import CoreBluetooth
 
-protocol BLEDelegate {
+protocol BLEDelegate: NSObjectProtocol {
     func disconnect()
     func connect()
     func showError(_ message : String)
     func showLoading(_ message : String)
     func hideLoading()
-
 }
 
-protocol BLELogonDelegate{
+protocol BLELogonDelegate: NSObjectProtocol {
     func success()
 }
 
-protocol BLEStatusDelegate{
+protocol BLEStatusDelegate: NSObjectProtocol {
     func updateStatus(_ cmd1: UInt8, cmd2: UInt8, cmd3: UInt8, cmd4: UInt8)
     func logonerror()
-    
 }
 
-protocol BLEVersionDelegate{
-    
+protocol BLEVersionDelegate: NSObjectProtocol {
     func updateVersion(version : String)
-    
 }
 
-protocol BLERenameDelegate{
-    
+protocol BLERenameDelegate: NSObjectProtocol {
     func rename(_ newname : String)
     func error(_ message : String)
-    
 }
 
-protocol BLEChangePassDelegate {
+protocol BLEChangePassDelegate: NSObjectProtocol {
     func success()
     func error(_ message: String)
-    
 }
 
-protocol BLEDiscoverPeripheral{
+protocol BLEDiscoverPeripheral: NSObjectProtocol {
     func discover(_ peripheral : CBPeripheral, rssi: NSNumber)
 }
 
 
-protocol BLESMKDelegate{
-    
+protocol BLESMKDelegate: NSObjectProtocol {
     func update(_ currSMK : String, time: String)
     func success(_ message : String, time: String)
     func error(_ message : String)
-    
 }
 
 class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
@@ -73,14 +64,14 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     var bleProtocol : BLEProtocol!
     var uartRXCharacteristic : CBCharacteristic!
-    var delegate : BLEDelegate!
-    var delegateVersion : BLEVersionDelegate!
-    var delegateStatus : BLEStatusDelegate!
-    var delegateRename : BLERenameDelegate!
-    var delegateLogon : BLELogonDelegate!
-    var delegateChangePass : BLEChangePassDelegate!
-    var delegaatePeripheral : BLEDiscoverPeripheral!
-    var delegateSMK : BLESMKDelegate!
+    weak var delegate : BLEDelegate!
+    weak var delegateVersion : BLEVersionDelegate!
+    weak var delegateStatus : BLEStatusDelegate!
+    weak var delegateRename : BLERenameDelegate!
+    weak var delegateLogon : BLELogonDelegate!
+    weak var delegateChangePass : BLEChangePassDelegate!
+    weak var delegaatePeripheral : BLEDiscoverPeripheral!
+    weak var delegateSMK : BLESMKDelegate!
     
     var user : User!
     var pinSMK : String!
@@ -238,7 +229,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             self.pinSMK = newPinSMK
             send(bleProtocol.writeSMK(newPinSMK + time))
         }else{
-            delegateSMK.error("PIN phải bao gồm 9 chữ số")
+            delegateSMK.error("PIN phải bao gồm 9 số")
         }
     }
     
@@ -248,7 +239,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             self.newName = newName
             send(bleProtocol.rename(newName))
         }else{
-            delegateRename.error("Tên phải ít hơn 10 chữ")
+            delegateRename.error("Tên phải ít hơn 10 ký tự")
         }
     }
     func changePass(_ newPass: String){
@@ -313,10 +304,11 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     //MARK:peripheral delegate service
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        if (error != nil){
+        if let error = error {
             print("Error \(error)")
             
-        }else{
+        }
+        else {
             delegate.connect()
             for service in peripheral.services! {
                 
@@ -340,10 +332,11 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
-        if (error != nil){
+        if let error = error {
             print("Error \(error)")
             
-        }else{
+        }
+        else {
             print("Discovered Characteristic")
             
             var txChracteristic : CBCharacteristic!
@@ -373,10 +366,11 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-        if (error != nil){
+        if let error = error {
             print("Enable notification Error \(error)")
             
-        }else{
+        }
+        else {
             
             if(characteristic.isNotifying){
                 print("Notification enabled")
@@ -389,25 +383,24 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
-        
-        if (error != nil){
+        if let error = error {
             print("Write Descriptor Characterisctic Error \(error)")
             
-        }else{
+        }
+        else {
             print("data write to %s", descriptor.uuid.uuidString)
-            
         }
         
     }
+    
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        if (error != nil){
+        if let error = error {
             print("Write Characterisctic Error \(error)")
             
-        }else{
-            print("data write to %s", characteristic.uuid.uuidString)
-            
         }
-        
+        else {
+            print("data write to %s", characteristic.uuid.uuidString)
+        }
     }
     
     func showNotifycation(_ message : String){
@@ -419,11 +412,10 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        
-        if (error != nil){
-            print("Update value Error",error!)
-            
-        }else{
+        if let error = error {
+            print("Update value Error",error)
+        }
+        else {
             // the number of elements:
             let data = characteristic.value
             let count = data!.count / MemoryLayout<UInt8>.size

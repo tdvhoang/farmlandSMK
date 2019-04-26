@@ -2,22 +2,19 @@
 
 import UIKit
 
-class RenameViewController: BaseVC,BLERenameDelegate {
-    
-    
+class RenameViewController: BaseVC, BLERenameDelegate {
     @IBOutlet weak var txtNewName: UITextField!
     
-    
     func updateInfor() -> Void {
-        //ulNameDevice.text = ble.user.namedevice
-        //rlNameUser.text = ble.user.username
-        //ufModelBike.text = ble.user.modelBike
-        //ulNumberBike.text = ble.user.numberBike
+        //ulNameDevice.text = BLE.shared.user.namedevice
+        //rlNameUser.text = BLE.shared.user.username
+        //ufModelBike.text = BLE.shared.user.modelBike
+        //ulNumberBike.text = BLE.shared.user.numberBike
     }
     
     func rename(_ newname: String) {
-        ble.user.namedevice = newname
-        ble.user.saveValue()
+        BLE.shared.user.namedevice = newname
+        BLE.shared.user.saveValue()
         updateInfor()
         error("Đổi tên thiết bị thành công")
     }
@@ -33,12 +30,12 @@ class RenameViewController: BaseVC,BLERenameDelegate {
     }
     
     @IBAction func saveNewName(_ sender: Any) {
-        ble.rename(txtNewName.text!)
+        BLE.shared.rename(txtNewName.text!)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ble.delegateRename = self
+        BLE.shared.delegateRename = self
         
         self.txtNewName.becomeFirstResponder()
     }

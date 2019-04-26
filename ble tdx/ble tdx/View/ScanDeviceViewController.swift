@@ -9,7 +9,7 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
     
     var peripherals : [ScannedPeripheral]!
     var bluetoothManager : CBCentralManager!
-    var timer : Timer!
+    var timer : Timer?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("peripherals.count = ",peripherals.count)
         return peripherals.count
@@ -26,8 +26,8 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let peripheral = peripherals[indexPath.row].peripheral
-        ble.scannedPeripheral = peripheral
-        ble.user.uuid = peripheral?.identifier.uuidString
+        BLE.shared.scannedPeripheral = peripheral
+        BLE.shared.user.uuid = peripheral?.identifier.uuidString
         //ble.user.saveValue()
         showAlertInputPin()
         
@@ -53,8 +53,7 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         self.edgesForExtendedLayout = UIRectEdge()
-        ble = BLE.shared
-        ble.delegaatePeripheral = self
+        BLE.shared.delegaatePeripheral = self
         peripherals = [ScannedPeripheral]()
         tbPeripheral.delegate = self
         tbPeripheral.dataSource = self
@@ -66,9 +65,9 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
         uibarbuttonitem.customView = uiBusy
         self.navigationItem.rightBarButtonItem = uibarbuttonitem
         
-        self.ble.user.clearDevice()
+        BLE.shared.user.clearDevice()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ScanDeviceViewController.timerFireMethod), userInfo: nil, repeats: true)
-        ble.scanForPeripheral(true)
+        BLE.shared.scanForPeripheral(true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         //UIImage(named: "bg.png")?.draw(in: self.view.bounds)
@@ -79,11 +78,11 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
 
     
     override func viewWillDisappear(_ animated: Bool) {
-        ble.scanForPeripheral(false)
-        if(timer != nil){
-            timer.invalidate()
-            timer = nil
-        }
+        super.viewWillDisappear(animated)
+        
+        BLE.shared.scanForPeripheral(false)
+        self.timer?.invalidate()
+        self.timer = nil
     }
 
     func getRSSIImage(_ rssi : Int) -> UIImage {
@@ -123,8 +122,8 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             let tf = alertController.textFields?.first
-            if(tf!.text?.characters.count != 4){
-                let alertLengthInput = UIAlertController(title: "Cảnh báo", message: "Mật khẩu gồm 4 chữ", preferredStyle: .alert)
+            if tf!.text?.count != 4 {
+                let alertLengthInput = UIAlertController(title: "Cảnh báo", message: "Mật khẩu gồm 4 ký tự", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
                     
                 }
@@ -137,11 +136,11 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
                 self.present(alertLengthInput, animated: true, completion: nil)
                 
             }else{
-                self.ble.user.pin = tf?.text
-                self.ble.bleProtocol.pin = self.ble.user.pin
-                self.ble.user.saveValue()
+                BLE.shared.user.pin = tf?.text
+                BLE.shared.bleProtocol.pin = BLE.shared.user.pin
+                BLE.shared.user.saveValue()
                 
-                print ("PIN: ",self.ble.user.pin)
+                print ("PIN: ",BLE.shared.user.pin)
                 
                 self.navigationController?.popViewController(animated: true)
             }

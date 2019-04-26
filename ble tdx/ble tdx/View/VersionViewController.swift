@@ -7,18 +7,13 @@ class VersionViewController: BaseVC,BLEVersionDelegate {
     @IBOutlet weak var lbVersion: UILabel!
     @IBOutlet weak var imgvContent: UIImageView!
     
-    func updateVersion(version: String) {
-        lbVersion.text = "Phiên bản " + version
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ble.delegateVersion = self
+        BLE.shared.delegateVersion = self
         
-        if ble.isConnected() {
-            ble.version()
+        if BLE.shared.isConnected() {
+            BLE.shared.version()
         }
         
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -27,5 +22,9 @@ class VersionViewController: BaseVC,BLEVersionDelegate {
         else {
             self.imgvContent.image = UIImage(named: "intro_content_iphone_portrail")
         }
+    }
+    
+    func updateVersion(version: String) {
+        lbVersion.text = "Phiên bản " + version
     }
 }

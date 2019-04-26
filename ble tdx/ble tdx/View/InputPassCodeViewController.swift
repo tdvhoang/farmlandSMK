@@ -87,6 +87,10 @@ class InputPassCodeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func handleNotification(_ noti: NSNotification) {
         if self.type != .InputPassCode {
             self.dismiss(animated: true, completion: nil)

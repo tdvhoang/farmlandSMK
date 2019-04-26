@@ -3,37 +3,17 @@ import UIKit
 
 class DeviceInfTableView: UITableViewController {
     
-    func updatePINSK(_ pinSK: String) {
-        //ble.user.pinSmartkey = pinSK
-        ble.user.saveValue()
-        updateInfor()
-    }
-    
-    func error() {
-        print("ok")
-    }
-    
-
-    var ble : BLE!
-    
     @IBOutlet weak var lbDeviceName: UILabel!
-    
     @IBOutlet weak var lbDriverName: UILabel!
-    
     @IBOutlet weak var lbBikeType: UILabel!
-    
     @IBOutlet weak var lbPinSmartkey: UILabel!
-    
     @IBOutlet weak var lbBikeID: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ble = BLE.shared
-        //ble.delegateReadPINSK = self
-        
-        if(ble.isConnected()){
-            //ble.readPINSK()
+        if BLE.shared.isConnected() {
+            //BLE.shared.readPINSK()
         }
     }
 
@@ -42,24 +22,29 @@ class DeviceInfTableView: UITableViewController {
         
         updateInfor()
     }
-
+    
+    func updatePINSK(_ pinSK: String) {
+        BLE.shared.user.saveValue()
+        updateInfor()
+    }
+    
+    func error() {
+        print("ok")
+    }
     
     func updateInfor() -> Void {
-        lbDeviceName.text = ble.user.namedevice
-        lbDriverName.text = ble.user.username
-        lbBikeType.text = ble.user.modelBike
-        //lbBikeID.text = ble.user.numberBike
-        //lbPinSmartkey.text = ble.user.pinSmartkey
+        lbDeviceName.text = BLE.shared.user.namedevice
+        lbDriverName.text = BLE.shared.user.username
+        lbBikeType.text = BLE.shared.user.modelBike
+        //lbBikeID.text = BLE.shared.user.numberBike
+        //lbPinSmartkey.text = BLE.shared.user.pinSmartkey
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if(segue.identifier == "segue_changedevice"){
-    
-            if(ble.isConnected()){
-                ble.disconnect()
+        if segue.identifier == "segue_changedevice" {
+            if BLE.shared.isConnected() {
+                BLE.shared.disconnect()
             }
-            
         }
     }
 }

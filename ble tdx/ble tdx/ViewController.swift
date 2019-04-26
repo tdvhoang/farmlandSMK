@@ -38,7 +38,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate,CBPeripheralDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ble = BLE.shared
         print("Do any additional setup after loading the view, typically from a nib" )
         // Do any additional setup after loading the view, typically from a nib.
     }

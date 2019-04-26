@@ -11,16 +11,16 @@ import UIKit
 class ChangeSMKViewController: BaseVC, BLESMKDelegate {
     
     func update(_ currSMK: String, time: String) {
-        ble.user.time = time
-        ble.user.pinSMK = currSMK
-        ble.user.saveValue()
+        BLE.shared.user.time = time
+        BLE.shared.user.pinSMK = currSMK
+        BLE.shared.user.saveValue()
         updateUI()
     }
     
     func success(_ message: String, time: String) {
-        ble.user.time = time
-        ble.user.pinSMK = message
-        ble.user.saveValue()
+        BLE.shared.user.time = time
+        BLE.shared.user.pinSMK = message
+        BLE.shared.user.saveValue()
         updateUI();
         showAlert("Đổi PIN SMK thành công")
     }
@@ -42,16 +42,13 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
         let ipin:Int? = Int(txtNewPINSMK.text!)
         var bOK: Bool = true;
         
-        if(itime != nil)
-        {
-            if(itime! < 10 || itime! > 99)
-            {
+        if let itime = itime {
+            if(itime < 10 || itime > 99) {
                 showAlert("Thời gian phải có giá trị 10 đến 99")
                 bOK = false
             }
         }
-        else
-        {
+        else {
             showAlert("Thời gian không hợp lệ")
             bOK = false
         }
@@ -63,17 +60,17 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
         }
         if( bOK == true)
         {
-            ble.writeSMK(txtNewPINSMK.text!,time: txtTime.text!)
+            BLE.shared.writeSMK(txtNewPINSMK.text!,time: txtTime.text!)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ble.delegateSMK = self
+        BLE.shared.delegateSMK = self
         
-        if(ble.isConnected()){
-            ble.readSMK()
+        if BLE.shared.isConnected() {
+            BLE.shared.readSMK()
         }
         
         self.txtNewPINSMK.becomeFirstResponder()
@@ -81,7 +78,7 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
 
     
     func updateUI(){
-        txtCurrPINSMK.text = "Mã hiện tại: " + ble.user.pinSMK + "     Thời gian: " + ble.user.time
+        txtCurrPINSMK.text = "Mã hiện tại: " + BLE.shared.user.pinSMK + "     Thời gian: " + BLE.shared.user.time
     }
     
     override func viewDidAppear(_ animated: Bool) {

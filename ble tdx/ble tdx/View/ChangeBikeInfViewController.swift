@@ -15,17 +15,19 @@ class ChangeBikeInfViewController: BaseVC {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         saveData()
     }
 
     func saveData() -> Void {
         if(title == "Tên người dùng"){
-            ble.user.username = txtInfor.text
+            BLE.shared.user.username = txtInfor.text
             
         }else if(title == "Loại xe"){
-            ble.user.modelBike = txtInfor.text
+            BLE.shared.user.modelBike = txtInfor.text
             
         }
-        ble.user.saveValue()
+        BLE.shared.user.saveValue()
     }
 }

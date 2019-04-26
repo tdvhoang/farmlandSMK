@@ -2,13 +2,40 @@
 import UIKit
 
 class ChangePassWordViewController: BaseVC, BLEChangePassDelegate {
+    @IBOutlet weak var txtOldPassword: UITextField!
+    @IBOutlet weak var txtNewPassword: UITextField!
+    @IBOutlet weak var txtNewPasswordConfirm: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        BLE.shared.delegateChangePass = self
+        self.txtOldPassword.becomeFirstResponder()
+    }
+    
+    @IBAction func OnClickedSave(_ sender: Any) {
+        if !txtOldPassword.text!.isEqual(BLE.shared.user.pin) {
+            showAlert("Mật khẩu cũ không đúng")
+            return
+        }
+        
+        if self.txtNewPassword.text!.count != 4 {
+            showAlert("Mật khẩu gồm 4 ký tự!")
+            return
+        }
+        
+        if !self.txtNewPassword.text!.isEqual(txtNewPasswordConfirm.text!) {
+            showAlert("Mật khẩu không trùng!")
+            return
+        }
+        BLE.shared.changePass(txtNewPassword.text!)
+    }
     
     func success() {
-        ble.user.pin = txtNewPassword.text!
-        ble.user.saveValue()
-        ble.bleProtocol.pin = txtNewPassword.text!
-        let alertMessage = UIAlertController(title: "Cảnh báo", message: "Đổi mật khẩu thành công", preferredStyle: .alert)
+        BLE.shared.user.pin = self.txtNewPassword.text!
+        BLE.shared.user.saveValue()
+        BLE.shared.bleProtocol.pin = txtNewPassword.text!
+        let alertMessage = UIAlertController(title: "Thông báo", message: "Đổi mật khẩu thành công", preferredStyle: .alert)
         
         let destroyAction = UIAlertAction(title: "OK", style: .default) { (action) in
             self.navigationController?.popViewController(animated: true)
@@ -19,42 +46,6 @@ class ChangePassWordViewController: BaseVC, BLEChangePassDelegate {
     
     func error(_ message: String) {
         showAlert(message)
-    }
-    
-
-    
-    @IBOutlet weak var txtOldPassword: UITextField!
-    
-    @IBOutlet weak var txtNewPassword: UITextField!
-    
-    @IBOutlet weak var txtNewPasswordConfirm: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ble.delegateChangePass = self
-        
-        self.txtOldPassword.becomeFirstResponder()
-    }
-    
-
-    @IBAction func OnClickedSave(_ sender: Any) {
-        
-        if(!txtOldPassword.text!.isEqual(ble.user.pin)){
-            showAlert("Mật khẩu cũ không đúng")
-            return
-        }
-        
-        if(txtNewPassword.text!.count != 4){
-            showAlert("Mật khẩu gồm 4 chữ số!")
-            return
-        }
-        
-        if(!txtNewPassword.text!.isEqual(txtNewPasswordConfirm.text!)){
-            showAlert("Mật khẩu không trùng!")
-            return
-        }
-        ble.changePass(txtNewPassword.text!)
-        
     }
     
     func showAlert(_ message : String) -> Void {

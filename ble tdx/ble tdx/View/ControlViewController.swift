@@ -3,24 +3,10 @@
 import UIKit
 
 class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
-    
-    func success() {
-        
-        hideLoading()
-        imgConnect.image = UIImage(named:"ic_connect")
-        
-        ble.readStatus()
-    }
-    
-    
     @IBOutlet weak var imgConnect: UIImageView!
-    
     @IBOutlet weak var btnCMD1: UIButton!
-    
     @IBOutlet weak var btnCMD2: UIButton!
-    
     @IBOutlet weak var btnCMD3: UIButton!
-    
     @IBOutlet weak var btnCMD4: UIButton!
     
     var protect_status = true
@@ -29,51 +15,96 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
     var cmd3_status = true
     var cmd4_status = true
     
-    
-    @IBAction func onClickCMD1(_ sender: Any) {
-        if(cmd1_status)
-        {
-            ble.sendCMD1(false)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        BLE.shared.delegateStatus = self
+        BLE.shared.delegateLogon = self
+        
+        if BLE.shared.isConnected() {
+            BLE.shared.readStatus()
         }
-        else
-        {
-            ble.sendCMD1(true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Status viewDidAppear")
+        //updateInfor()
+        imgConnect.image = UIImage(named:"ic_disconnect")
+        
+        if !BLE.shared.hasValue() {
+            let alertScanDevice = UIAlertController(title: "Cảnh báo", message: "Vui lòng tìm thiết bị", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Bỏ qua", style: .cancel) { (action) in
+                
+            }
+            
+            alertScanDevice.addAction(cancelAction)
+            
+            let destroyAction = UIAlertAction(title: "Đồng ý", style: .default) { (action) in
+                self.scanDevice()
+            }
+            
+            alertScanDevice.addAction(destroyAction)
+            self.present(alertScanDevice, animated: true, completion: nil)
+        }else{
+            if(!BLE.shared.isConnected()){
+                print("Disconnected")
+                BLE.shared.connectToPeripheral(BLE.shared.scannedPeripheral!)
+            }else{
+                print("Connected---->>>>>>>>>>>>")
+                BLE.shared.readStatus()
+            }
         }
     }
     
+    func success() {
+        hideLoading()
+        imgConnect.image = UIImage(named:"ic_connect")
+        
+        BLE.shared.readStatus()
+    }
+    
+    @IBAction func onClickCMD1(_ sender: Any) {
+        if cmd1_status {
+            BLE.shared.sendCMD1(false)
+        }
+        else {
+            BLE.shared.sendCMD1(true)
+        }
+    }
     
     @IBAction func onClickCMD2(_ sender: Any) {
-        if(cmd2_status)
-        {
-            ble.sendCMD2(false)
+        if cmd2_status {
+            BLE.shared.sendCMD2(false)
         }
-        else
-        {
-            ble.sendCMD2(true)
+        else {
+            BLE.shared.sendCMD2(true)
         }
     }
     
 
     @IBAction func onClickCMD3(_ sender: Any) {
-        if(cmd3_status)
-        {
-            ble.sendCMD3(false)
+        if cmd3_status {
+            BLE.shared.sendCMD3(false)
         }
-        else
-        {
-            ble.sendCMD3(true)
+        else {
+            BLE.shared.sendCMD3(true)
         }
     }
     
     
     @IBAction func onClickCMD4(_ sender: Any) {
-        if(cmd4_status)
-        {
-            ble.sendCMD4(false)
+        if cmd4_status {
+            BLE.shared.sendCMD4(false)
         }
-        else
-        {
-            ble.sendCMD4(true)
+        else {
+            BLE.shared.sendCMD4(true)
         }
     }
     
@@ -126,59 +157,13 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
         alert.addAction(cancelAction)
         
         let destroyAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.ble.disconnect()
+            BLE.shared.disconnect()
             self.scanDevice()
             
         }
         alert.addAction(destroyAction)
         self.present(alert, animated: true, completion: nil)
         
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("viewDidload")
-        ble.delegateStatus = self;
-        ble.delegateLogon = self;
-        
-        if(ble.isConnected()){
-            ble.readStatus()
-        }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("Status viewDidAppear")
-        //updateInfor()
-        imgConnect.image = UIImage(named:"ic_disconnect")
-        
-        if !ble.hasValue() {
-            
-            let alertScanDevice = UIAlertController(title: "Cảnh báo", message: "Vui lòng tìm thiết bị", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Bỏ qua", style: .cancel) { (action) in
-                
-            }
-            
-            alertScanDevice.addAction(cancelAction)
-            
-            let destroyAction = UIAlertAction(title: "Đồng ý", style: .default) { (action) in
-                self.scanDevice()
-            }
-            
-            alertScanDevice.addAction(destroyAction)
-            self.present(alertScanDevice, animated: true, completion: nil)
-        }else{
-            if(!ble.isConnected()){
-                print("Disconnected")
-                ble.connectToPeripheral(ble.scannedPeripheral!)
-            }else{
-                print("Connected---->>>>>>>>>>>>")
-                ble.readStatus()
-            }
-        }
     }
     
     func scanDevice() {
