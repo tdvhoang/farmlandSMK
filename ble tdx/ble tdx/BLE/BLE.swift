@@ -403,14 +403,6 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func showNotifycation(_ message : String){
-        let localNotify = UILocalNotification()
-        localNotify.fireDate = Date(timeIntervalSinceNow: 1)
-        localNotify.alertBody = message
-        localNotify.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.shared.presentLocalNotificationNow(localNotify)
-    }
-    
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             print("Update value Error",error)

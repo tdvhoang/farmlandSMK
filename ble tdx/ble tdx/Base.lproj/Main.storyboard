@@ -156,7 +156,7 @@
                         <outlet property="btnCMD3" destination="Dcx-3z-EzF" id="JeS-gB-0kJ"/>
                         <outlet property="btnCMD4" destination="Gk8-r0-On7" id="Ghx-Dk-FQ1"/>
                         <outlet property="imgConnect" destination="8UY-rh-FqN" id="qyi-k0-JEf"/>
-                        <segue destination="wLi-2O-Slo" kind="push" identifier="scandevice" id="jIN-8h-sPL"/>
+                        <segue destination="wLi-2O-Slo" kind="show" identifier="scandevice" id="jIN-8h-sPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -260,7 +260,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="RcY-fT-N35" kind="push" id="G6N-XR-fKP"/>
+                                            <segue destination="RcY-fT-N35" kind="show" id="G6N-XR-fKP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="cLa-1a-Ltc">
@@ -283,7 +283,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ixb-Th-upW" kind="push" id="UF2-gG-ORX"/>
+                                            <segue destination="ixb-Th-upW" kind="show" id="UF2-gG-ORX"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="M8q-Pv-FlH">
@@ -306,7 +306,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Gu6-jO-1wB" kind="push" id="7p0-FY-RbQ"/>
+                                            <segue destination="Gu6-jO-1wB" kind="show" id="7p0-FY-RbQ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dFg-8f-eXf">
@@ -329,7 +329,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="wLi-2O-Slo" kind="push" id="QJG-s8-yaF"/>
+                                            <segue destination="wLi-2O-Slo" kind="show" id="QJG-s8-yaF"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="S63-D6-fQo">
