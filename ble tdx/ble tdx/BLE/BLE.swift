@@ -58,7 +58,6 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     let UARTRXCHARACTERISTICUUIDSTRING =  CBUUID(string:"6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
     
     var centralManager : CBCentralManager!
-    var dcvPeripherals : [CBPeripheral]!
     var bluetoothPeripheral : CBPeripheral!
     var scannedPeripheral : CBPeripheral!
     
@@ -88,7 +87,6 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         bleProtocol.pin = user.pin
         
         self.centralManager = CBCentralManager(delegate: self,queue: nil,options: nil)
-        self.dcvPeripherals = [CBPeripheral]()
         
         if(user.uuid != nil){
             let knownPeripherals = self.centralManager.retrievePeripherals(withIdentifiers: [UUID(uuidString: user.uuid!)!])
@@ -146,8 +144,8 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         
     }
 
-    func disconnect(){
-        if(self.bluetoothPeripheral != nil){
+    func disconnect() {
+        if self.bluetoothPeripheral != nil {
             self.centralManager.cancelPeripheralConnection(self.bluetoothPeripheral)
         }
     }
@@ -259,10 +257,7 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         centralManager.stopScan()
     }
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        dcvPeripherals.append(peripheral)
-        if(delegaatePeripheral != nil){
-            delegaatePeripheral.discover(peripheral,rssi : RSSI)
-        }
+        self.delegaatePeripheral?.discover(peripheral,rssi : RSSI)
     }
     
     
@@ -295,11 +290,6 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         bluetoothPeripheral = nil
         
     }
-    
-    //MARK:Restore
-    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-    }
-    
     
     //MARK:peripheral delegate service
     
@@ -417,7 +407,8 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             (data! as NSData).getBytes(&array, length:count * MemoryLayout<UInt8>.size)
             //parser data
             if(array[3] == 0x85){
-                delegate.showError("Sai mật khẩu")
+                self.disconnect()
+                self.delegate.showError("Sai mật khẩu")
             }
             else if(array[Int(bleProtocol.OPCODE_OFFSET)] == bleProtocol.OPCODE_LOGON){
                 
@@ -427,7 +418,8 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     }
                     else
                     {
-                        delegate.showError("Sai mật khẩu")
+                        self.disconnect()
+                        self.delegate.showError("Sai mật khẩu")
                     }
                 }
             }

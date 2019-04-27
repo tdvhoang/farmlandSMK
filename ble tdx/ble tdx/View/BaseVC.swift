@@ -10,6 +10,18 @@ class BaseVC: UIViewController, BLEDelegate {
         BLE.shared.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        BLE.shared.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        BLE.shared.delegate = self
+    }
+    
     //MARK BLE delegate
     func connect() {
         hideLoading()
@@ -21,11 +33,6 @@ class BaseVC: UIViewController, BLEDelegate {
     
     func showError(_ message: String) {
         let alertError = UIAlertController(title: "Cảnh báo", message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            
-        }
-        alertError.addAction(cancelAction)
-        
         let destroyAction = UIAlertAction(title: "OK", style: .default) { _ in
             
         }

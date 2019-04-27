@@ -50,11 +50,6 @@ class ChangePassWordViewController: BaseVC, BLEChangePassDelegate {
     
     func showAlert(_ message : String) -> Void {
         let alertMessage = UIAlertController(title: "Cảnh báo", message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            
-        }
-        alertMessage.addAction(cancelAction)
-        
         let destroyAction = UIAlertAction(title: "OK", style: .default) { (action) in
             
         }

@@ -11,18 +11,15 @@
 		2910D36A20D0D9960039C099 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 297671FF20D0D45F00279CCF /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29209DB0208885FB0008CF0D /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29209DAF208885FB0008CF0D /* ScanTableViewCell.swift */; };
 		2976ED122084771E007779BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED112084771E007779BB /* AppDelegate.swift */; };
-		2976ED142084771E007779BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED132084771E007779BB /* ViewController.swift */; };
 		2976ED172084771E007779BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2976ED152084771E007779BB /* Main.storyboard */; };
 		2976ED1920847721007779BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2976ED1820847721007779BB /* Assets.xcassets */; };
 		2976ED1C20847721007779BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2976ED1A20847721007779BB /* LaunchScreen.storyboard */; };
 		2976ED2720847721007779BB /* iky_smartkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED2620847721007779BB /* iky_smartkeyTests.swift */; };
 		2976ED3220847721007779BB /* iky_smartkeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED3120847721007779BB /* iky_smartkeyUITests.swift */; };
-		2976ED562084A8E8007779BB /* DeviceInfTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED552084A8E8007779BB /* DeviceInfTableView.swift */; };
 		2977C14D20CA173E00876E04 /* ChangeSMKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */; };
 		29B9198520B7A5FF00F7D967 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */; };
 		29C276472089A1E1005EDC44 /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C276462089A1E1005EDC44 /* RenameViewController.swift */; };
 		29C2764B2089A4F6005EDC44 /* ChangePassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */; };
-		29C2764D2089A528005EDC44 /* ChangeBikeInfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2764C2089A528005EDC44 /* ChangeBikeInfViewController.swift */; };
 		29C276512089E316005EDC44 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C276502089E316005EDC44 /* VersionViewController.swift */; };
 		29C75B8A20883F3800A069F2 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C75B8920883F3700A069F2 /* BaseVC.swift */; };
 		29C75B8C20883F9200A069F2 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C75B8B20883F9200A069F2 /* ControlViewController.swift */; };
@@ -136,7 +133,6 @@
 		297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		2976ED0E2084771E007779BB /* farmland smk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "farmland smk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2976ED112084771E007779BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2976ED132084771E007779BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2976ED162084771E007779BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2976ED1820847721007779BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2976ED1B20847721007779BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,12 +143,10 @@
 		2976ED2D20847721007779BB /* farmland smkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "farmland smkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2976ED3120847721007779BB /* iky_smartkeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iky_smartkeyUITests.swift; sourceTree = "<group>"; };
 		2976ED3320847721007779BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2976ED552084A8E8007779BB /* DeviceInfTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfTableView.swift; sourceTree = "<group>"; };
 		2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSMKViewController.swift; sourceTree = "<group>"; };
 		29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		29C276462089A1E1005EDC44 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
-		29C2764C2089A528005EDC44 /* ChangeBikeInfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBikeInfViewController.swift; sourceTree = "<group>"; };
 		29C276502089E316005EDC44 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
 		29C75B882088398400A069F2 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		29C75B8920883F3700A069F2 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -237,7 +231,6 @@
 				2976ED492084A63D007779BB /* Data */,
 				4F6B904A2183780900ADBA9D /* Extension */,
 				2976ED112084771E007779BB /* AppDelegate.swift */,
-				2976ED132084771E007779BB /* ViewController.swift */,
 				2976ED152084771E007779BB /* Main.storyboard */,
 				2976ED1820847721007779BB /* Assets.xcassets */,
 				2976ED1A20847721007779BB /* LaunchScreen.storyboard */,
@@ -288,13 +281,11 @@
 			isa = PBXGroup;
 			children = (
 				29C75B8920883F3700A069F2 /* BaseVC.swift */,
-				2976ED552084A8E8007779BB /* DeviceInfTableView.swift */,
 				29C75B8B20883F9200A069F2 /* ControlViewController.swift */,
 				29C75B8D2088463700A069F2 /* ScanDeviceViewController.swift */,
 				29209DAF208885FB0008CF0D /* ScanTableViewCell.swift */,
 				29C276462089A1E1005EDC44 /* RenameViewController.swift */,
 				29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */,
-				29C2764C2089A528005EDC44 /* ChangeBikeInfViewController.swift */,
 				29C276502089E316005EDC44 /* VersionViewController.swift */,
 				2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */,
 				4F6BD40D2140226B009759D2 /* LockAppSetting.swift */,
@@ -541,11 +532,9 @@
 			files = (
 				29E6A2BB20B6AD4B00B90B7D /* SymmetricCryptor.swift in Sources */,
 				29C75B8E2088463700A069F2 /* ScanDeviceViewController.swift in Sources */,
-				2976ED142084771E007779BB /* ViewController.swift in Sources */,
 				29E6A2C320B6ADA100B90B7D /* ScannedPeripheral.swift in Sources */,
 				2977C14D20CA173E00876E04 /* ChangeSMKViewController.swift in Sources */,
 				2976ED122084771E007779BB /* AppDelegate.swift in Sources */,
-				2976ED562084A8E8007779BB /* DeviceInfTableView.swift in Sources */,
 				29C276472089A1E1005EDC44 /* RenameViewController.swift in Sources */,
 				29E6A2C120B6AD9B00B90B7D /* User.swift in Sources */,
 				4F6BD41721417C60009759D2 /* InputPassCodeViewController.swift in Sources */,
@@ -558,7 +547,6 @@
 				29C75B8C20883F9200A069F2 /* ControlViewController.swift in Sources */,
 				29209DB0208885FB0008CF0D /* ScanTableViewCell.swift in Sources */,
 				29C276512089E316005EDC44 /* VersionViewController.swift in Sources */,
-				29C2764D2089A528005EDC44 /* ChangeBikeInfViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

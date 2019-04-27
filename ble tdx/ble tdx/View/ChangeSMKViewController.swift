@@ -9,38 +9,32 @@
 import UIKit
 
 class ChangeSMKViewController: BaseVC, BLESMKDelegate {
-    
-    func update(_ currSMK: String, time: String) {
-        BLE.shared.user.time = time
-        BLE.shared.user.pinSMK = currSMK
-        BLE.shared.user.saveValue()
-        updateUI()
-    }
-    
-    func success(_ message: String, time: String) {
-        BLE.shared.user.time = time
-        BLE.shared.user.pinSMK = message
-        BLE.shared.user.saveValue()
-        updateUI();
-        showAlert("Đổi PIN SMK thành công")
-    }
-    
-    func error(_ message: String) {
-        showAlert(message)
-    }
-    
     @IBOutlet weak var txtTime: UITextField!
-    
     @IBOutlet weak var txtCurrPINSMK: UITextField!
-    
     @IBOutlet weak var txtNewPINSMK: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        BLE.shared.delegateSMK = self
+        
+        if BLE.shared.isConnected() {
+            BLE.shared.readSMK()
+        }
+        
+        self.txtNewPINSMK.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateUI()
+    }
     
     @IBAction func OnclickSave(_ sender: Any) {
         
         let itime:Int? = Int(txtTime.text!)
         let ipin:Int? = Int(txtNewPINSMK.text!)
-        var bOK: Bool = true;
+        var bOK: Bool = true
         
         if let itime = itime {
             if(itime < 10 || itime > 99) {
@@ -53,47 +47,44 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
             bOK = false
         }
         
-        if(ipin == nil)
-        {
+        if ipin == nil {
             showAlert("Mã PIN không hợp lệ")
             bOK = false
         }
-        if( bOK == true)
-        {
+        if bOK {
             BLE.shared.writeSMK(txtNewPINSMK.text!,time: txtTime.text!)
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        BLE.shared.delegateSMK = self
-        
-        if BLE.shared.isConnected() {
-            BLE.shared.readSMK()
-        }
-        
-        self.txtNewPINSMK.becomeFirstResponder()
-    }
-
-    
-    func updateUI(){
+    func updateUI() {
         txtCurrPINSMK.text = "Mã hiện tại: " + BLE.shared.user.pinSMK + "     Thời gian: " + BLE.shared.user.time
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func update(_ currSMK: String, time: String) {
+        BLE.shared.user.time = time
+        BLE.shared.user.pinSMK = currSMK
+        BLE.shared.user.saveValue()
         updateUI()
+    }
+    
+    func success(_ message: String, time: String) {
+        BLE.shared.user.time = time
+        BLE.shared.user.pinSMK = message
+        BLE.shared.user.saveValue()
+        updateUI()
+        showAlert("Đổi PIN SMK thành công")
+    }
+    
+    func error(_ message: String) {
+        showAlert(message)
     }
     
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Cảnh báo", message: message, preferredStyle: .alert)
-        let destroyAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let destroyAction = UIAlertAction(title: "OK", style: .default) { _ in
             
         }
         alert.addAction(destroyAction)
         self.present(alert, animated: true, completion: nil)
-        
     }
-
 }

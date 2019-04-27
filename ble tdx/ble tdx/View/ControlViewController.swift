@@ -159,7 +159,6 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
         let destroyAction = UIAlertAction(title: "OK", style: .default) { (action) in
             BLE.shared.disconnect()
             self.scanDevice()
-            
         }
         alert.addAction(destroyAction)
         self.present(alert, animated: true, completion: nil)
@@ -175,7 +174,7 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
     @objc func handleNotification(_ noti: NSNotification) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if Date().timeIntervalSince(appDelegate.lastActiveDate) > 5 {
-                if let passCode = User.shared.passCode {
+                if let passCode = BLE.shared.user.passCode {
                     if passCode.count == 4 {
                         if let topVC = self.view.topMostController() {
                             if (topVC is InputPassCodeViewController) == false {
