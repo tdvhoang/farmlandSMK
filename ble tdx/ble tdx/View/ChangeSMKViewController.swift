@@ -112,7 +112,7 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
             pinSMK = smk
             if self.fullSMK == false {
                 if pinSMK.count > 6 {
-                    pinSMK = pinSMK.prefix(3) + "..." + pinSMK.suffix(3)
+                    pinSMK = pinSMK.prefix(2) + "..." + pinSMK.suffix(2)
                 }
             }
         }
