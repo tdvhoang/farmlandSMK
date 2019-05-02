@@ -12,6 +12,9 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
     @IBOutlet weak var txtTime: UITextField!
     @IBOutlet weak var txtCurrPINSMK: UITextField!
     @IBOutlet weak var txtNewPINSMK: UITextField!
+    @IBOutlet weak var btnShowSMK: UIButton!
+    
+    private var fullSMK = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,8 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
             BLE.shared.readSMK()
         }
         
+        self.btnShowSMK.clipsToBounds = true
+        self.btnShowSMK.layer.cornerRadius = 5
         self.txtNewPINSMK.becomeFirstResponder()
     }
     
@@ -31,7 +36,6 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
     }
     
     @IBAction func OnclickSave(_ sender: Any) {
-        
         let itime:Int? = Int(txtTime.text!)
         let ipin:Int? = Int(txtNewPINSMK.text!)
         var bOK: Bool = true
@@ -52,12 +56,68 @@ class ChangeSMKViewController: BaseVC, BLESMKDelegate {
             bOK = false
         }
         if bOK {
-            BLE.shared.writeSMK(txtNewPINSMK.text!,time: txtTime.text!)
+            BLE.shared.writeSMK(self.txtNewPINSMK.text!,time: txtTime.text!)
+        }
+    }
+    
+    @IBAction func showFullSMK() {
+        if self.fullSMK == false {
+            let alertController = UIAlertController(title: "Thông báo", message: "Nhập mật khẩu thiết bị", preferredStyle: .alert)
+            
+            alertController.addTextField { (textField) in
+                textField.placeholder = "Mật khẩu"
+                textField.keyboardType = .numberPad
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
+                if let tf = alertController.textFields?.first {
+                    if tf.text?.count != 4 {
+                        let alertLengthInput = UIAlertController(title: "Cảnh báo", message: "Mật khẩu gồm 4 ký tự", preferredStyle: .alert)
+                        let destroyAction = UIAlertAction(title: "OK", style: .default) { _ in
+                            
+                        }
+                        alertLengthInput.addAction(destroyAction)
+                        self.present(alertLengthInput, animated: true, completion: nil)
+                    }
+                    else if BLE.shared.user.pin != tf.text {
+                        let alertLengthInput = UIAlertController(title: "Cảnh báo", message: "Sai mật khẩu", preferredStyle: .alert)
+                        let destroyAction = UIAlertAction(title: "OK", style: .default) { _ in
+                            self.showFullSMK()
+                        }
+                        alertLengthInput.addAction(destroyAction)
+                        self.present(alertLengthInput, animated: true, completion: nil)
+                    }
+                    else {
+                        self.fullSMK = true
+                        self.updateUI()
+                    }
+                }
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else {
+            self.fullSMK = false
+            self.updateUI()
         }
     }
     
     func updateUI() {
-        txtCurrPINSMK.text = "Mã hiện tại: " + BLE.shared.user.pinSMK + "     Thời gian: " + BLE.shared.user.time
+        var pinSMK = ""
+        if let smk = BLE.shared.user.pinSMK {
+            pinSMK = smk
+            if self.fullSMK == false {
+                if pinSMK.count > 6 {
+                    pinSMK = pinSMK.prefix(3) + "..." + pinSMK.suffix(3)
+                }
+            }
+        }
+        self.txtCurrPINSMK.text = "Mã hiện tại: " + pinSMK + "     Thời gian: " + BLE.shared.user.time
+        self.btnShowSMK.setTitle(self.fullSMK ? "Ẩn": "Xem", for: .normal)
     }
     
     func update(_ currSMK: String, time: String) {

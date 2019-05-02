@@ -443,7 +443,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mã hiện tại: 123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSK-mg-2Rn">
-                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <rect key="frame" x="16" y="80" width="257" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -471,6 +471,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjq-t1-ZfW">
+                                <rect key="frame" x="289" y="80" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="XjL-bd-jIq"/>
+                                    <constraint firstAttribute="height" constant="30" id="aw6-5S-Tgd"/>
+                                </constraints>
+                                <state key="normal" title="Xem" backgroundImage="bg_tabbar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFullSMK" destination="Gu6-jO-1wB" eventType="touchUpInside" id="A8U-mU-rcj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -478,18 +491,22 @@
                             <constraint firstItem="cTs-RQ-XMA" firstAttribute="centerX" secondItem="wzt-h9-0bi" secondAttribute="centerX" id="Bf0-vj-jwC"/>
                             <constraint firstItem="nSK-mg-2Rn" firstAttribute="top" secondItem="wzt-h9-0bi" secondAttribute="top" constant="16" id="GFI-EC-gdA"/>
                             <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="Sap-gA-uZ3" secondAttribute="trailing" constant="16" id="K4F-xL-Jox"/>
+                            <constraint firstItem="nSK-mg-2Rn" firstAttribute="top" secondItem="pjq-t1-ZfW" secondAttribute="top" id="KKK-oQ-C8n"/>
                             <constraint firstItem="z8X-mM-Vgv" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="Rag-2i-kWa"/>
+                            <constraint firstItem="pjq-t1-ZfW" firstAttribute="leading" secondItem="nSK-mg-2Rn" secondAttribute="trailing" constant="16" id="UTQ-Hv-aMU"/>
                             <constraint firstItem="nSK-mg-2Rn" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="ZV9-TM-irQ"/>
                             <constraint firstItem="z8X-mM-Vgv" firstAttribute="top" secondItem="Sap-gA-uZ3" secondAttribute="bottom" constant="16" id="b7p-Lx-5hD"/>
+                            <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="pjq-t1-ZfW" secondAttribute="trailing" constant="16" id="hFg-JD-f32"/>
+                            <constraint firstItem="pjq-t1-ZfW" firstAttribute="height" secondItem="nSK-mg-2Rn" secondAttribute="height" id="kLI-r5-jBw"/>
                             <constraint firstItem="cTs-RQ-XMA" firstAttribute="top" secondItem="z8X-mM-Vgv" secondAttribute="bottom" constant="26" id="ncm-Kh-5M8"/>
                             <constraint firstItem="Sap-gA-uZ3" firstAttribute="leading" secondItem="wzt-h9-0bi" secondAttribute="leading" constant="16" id="pRG-TO-zLu"/>
                             <constraint firstItem="Sap-gA-uZ3" firstAttribute="top" secondItem="nSK-mg-2Rn" secondAttribute="bottom" constant="16" id="tis-fK-m3N"/>
-                            <constraint firstItem="wzt-h9-0bi" firstAttribute="trailing" secondItem="nSK-mg-2Rn" secondAttribute="trailing" constant="16" id="uWr-Z0-LYj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wzt-h9-0bi"/>
                     </view>
                     <navigationItem key="navigationItem" id="qnp-NX-j5G"/>
                     <connections>
+                        <outlet property="btnShowSMK" destination="pjq-t1-ZfW" id="1No-gn-by4"/>
                         <outlet property="txtCurrPINSMK" destination="nSK-mg-2Rn" id="Qk8-AZ-v63"/>
                         <outlet property="txtNewPINSMK" destination="Sap-gA-uZ3" id="ojG-kV-xed"/>
                         <outlet property="txtTime" destination="z8X-mM-Vgv" id="696-bO-pWM"/>
@@ -1173,10 +1190,11 @@
     <resources>
         <image name="Signal_3" width="30" height="22"/>
         <image name="bg_btnsave" width="616" height="99"/>
-        <image name="ic_cmd1_off" width="391.67999267578125" height="391.44000244140625"/>
-        <image name="ic_cmd2_off" width="391.67999267578125" height="391.44000244140625"/>
-        <image name="ic_cmd3_off" width="391.67999267578125" height="391.44000244140625"/>
-        <image name="ic_cmd4_off" width="391.67999267578125" height="391.44000244140625"/>
+        <image name="bg_tabbar" width="982" height="155"/>
+        <image name="ic_cmd1_off" width="60" height="60"/>
+        <image name="ic_cmd2_off" width="60" height="60"/>
+        <image name="ic_cmd3_off" width="60" height="60"/>
+        <image name="ic_cmd4_off" width="60" height="60"/>
         <image name="ic_disconnect" width="384" height="90"/>
         <image name="icon_acc" width="58" height="58"/>
         <image name="icon_home" width="58" height="58"/>
