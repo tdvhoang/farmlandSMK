@@ -1,4 +1,5 @@
 import UIKit
+import CommonCrypto
 
 private let kSymmetricCryptorRandomStringGeneratorCharset: [Character] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map({$0})
 

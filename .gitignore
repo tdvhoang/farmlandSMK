@@ -3,6 +3,7 @@ build/*
 .DS_Store
 ble tdx/farmland smk.xcodeproj/xcuserdata/*
 ble tdx/farmland smk.xcodeproj/project.xcworkspace/xcuserdata/*
-Carthage/Checkouts/*
-Carthage/Build/Mac/*
-Carthage/Build/tvOS/*
+ble tdx/Carthage/Checkouts/*
+ble tdx/Carthage/Build/Mac/*
+ble tdx/Carthage/Build/tvOS/*
+ble tdx/Carthage/Build/watchOS/*

@@ -1,6 +1,7 @@
 
 
 import UIKit
+import MBProgressHUD
 
 class BaseVC: UIViewController, BLEDelegate {
     

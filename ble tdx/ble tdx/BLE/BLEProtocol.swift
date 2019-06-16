@@ -1,5 +1,6 @@
 
 import UIKit
+import CommonCrypto
 import CryptoSwift
 
 class BLEProtocol: NSObject {

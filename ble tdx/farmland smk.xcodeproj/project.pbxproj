@@ -26,10 +26,10 @@
 		29E6A2BF20B6AD5700B90B7D /* BLEProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2BE20B6AD5700B90B7D /* BLEProtocol.swift */; };
 		29E6A2C120B6AD9B00B90B7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2C020B6AD9A00B90B7D /* User.swift */; };
 		29E6A2C320B6ADA100B90B7D /* ScannedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2C220B6ADA100B90B7D /* ScannedPeripheral.swift */; };
-		4F1AD26522B68A6300007CEB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26322B68A6300007CEB /* CryptoSwift.framework */; };
-		4F1AD26722B68A6800007CEB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26322B68A6300007CEB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F1AD26822B68A6800007CEB /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */; };
-		4F1AD26922B68A6800007CEB /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F1AD26D22B68E6200007CEB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26B22B68E6200007CEB /* CryptoSwift.framework */; };
+		4F1AD26F22B68E6700007CEB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26B22B68E6200007CEB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F1AD27022B68E6700007CEB /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26A22B68E6200007CEB /* MBProgressHUD.framework */; };
+		4F1AD27122B68E6700007CEB /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26A22B68E6200007CEB /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F6B90532183782A00ADBA9D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B90522183782A00ADBA9D /* UIViewExtension.swift */; };
 		4F6BD40E2140226B009759D2 /* LockAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BD40D2140226B009759D2 /* LockAppSetting.swift */; };
 		4F6BD41721417C60009759D2 /* InputPassCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BD41621417C60009759D2 /* InputPassCodeViewController.swift */; };
@@ -53,14 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2910D36D20D0D9960039C099 /* Embed Frameworks */ = {
+		4F1AD27222B68E6800007CEB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F1AD26922B68A6800007CEB /* MBProgressHUD.framework in Embed Frameworks */,
-				4F1AD26722B68A6800007CEB /* CryptoSwift.framework in Embed Frameworks */,
+				4F1AD27122B68E6700007CEB /* MBProgressHUD.framework in Embed Frameworks */,
+				4F1AD26F22B68E6700007CEB /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +85,6 @@
 		29C276462089A1E1005EDC44 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
 		29C276502089E316005EDC44 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
-		29C75B882088398400A069F2 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		29C75B8920883F3700A069F2 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		29C75B8B20883F9200A069F2 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		29C75B8D2088463700A069F2 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
@@ -94,8 +93,8 @@
 		29E6A2BE20B6AD5700B90B7D /* BLEProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEProtocol.swift; sourceTree = "<group>"; };
 		29E6A2C020B6AD9A00B90B7D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		29E6A2C220B6ADA100B90B7D /* ScannedPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedPeripheral.swift; sourceTree = "<group>"; };
-		4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
-		4F1AD26322B68A6300007CEB /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = ../Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		4F1AD26A22B68E6200007CEB /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		4F1AD26B22B68E6200007CEB /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		4F6B90522183782A00ADBA9D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4F6BD40D2140226B009759D2 /* LockAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockAppSetting.swift; sourceTree = "<group>"; };
 		4F6BD41621417C60009759D2 /* InputPassCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPassCodeViewController.swift; sourceTree = "<group>"; };
@@ -106,8 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F1AD26822B68A6800007CEB /* MBProgressHUD.framework in Frameworks */,
-				4F1AD26522B68A6300007CEB /* CryptoSwift.framework in Frameworks */,
+				4F1AD27022B68E6700007CEB /* MBProgressHUD.framework in Frameworks */,
+				4F1AD26D22B68E6200007CEB /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +160,6 @@
 				2976ED1820847721007779BB /* Assets.xcassets */,
 				2976ED1A20847721007779BB /* LaunchScreen.storyboard */,
 				2976ED1D20847721007779BB /* Info.plist */,
-				29C75B882088398400A069F2 /* Bridge-Header.h */,
 			);
 			path = "ble tdx";
 			sourceTree = "<group>";
@@ -223,8 +221,8 @@
 		29B9196020B7A3BD00F7D967 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F1AD26322B68A6300007CEB /* CryptoSwift.framework */,
-				4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */,
+				4F1AD26B22B68E6200007CEB /* CryptoSwift.framework */,
+				4F1AD26A22B68E6200007CEB /* MBProgressHUD.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,7 +245,7 @@
 				2976ED0A2084771E007779BB /* Sources */,
 				2976ED0B2084771E007779BB /* Frameworks */,
 				2976ED0C2084771E007779BB /* Resources */,
-				2910D36D20D0D9960039C099 /* Embed Frameworks */,
+				4F1AD27222B68E6800007CEB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -557,21 +555,23 @@
 		2976ED3720847721007779BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S4ALP33BAL;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ble tdx/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tdx.farmlandsmartkey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Farmland Smarkey Developement";
-				SWIFT_OBJC_BRIDGING_HEADER = "ble tdx/Bridge-Header.h";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS/";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -580,21 +580,23 @@
 		2976ED3820847721007779BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S4ALP33BAL;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ble tdx/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tdx.farmlandsmartkey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Farmland SMK";
-				SWIFT_OBJC_BRIDGING_HEADER = "ble tdx/Bridge-Header.h";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS/";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
