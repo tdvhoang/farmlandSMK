@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2910D36920D0D9960039C099 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297671FF20D0D45F00279CCF /* CryptoSwift.framework */; };
-		2910D36A20D0D9960039C099 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 297671FF20D0D45F00279CCF /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29209DB0208885FB0008CF0D /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29209DAF208885FB0008CF0D /* ScanTableViewCell.swift */; };
 		2976ED122084771E007779BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED112084771E007779BB /* AppDelegate.swift */; };
 		2976ED172084771E007779BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2976ED152084771E007779BB /* Main.storyboard */; };
@@ -17,7 +15,6 @@
 		2976ED2720847721007779BB /* iky_smartkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED2620847721007779BB /* iky_smartkeyTests.swift */; };
 		2976ED3220847721007779BB /* iky_smartkeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976ED3120847721007779BB /* iky_smartkeyUITests.swift */; };
 		2977C14D20CA173E00876E04 /* ChangeSMKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */; };
-		29B9198520B7A5FF00F7D967 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */; };
 		29C276472089A1E1005EDC44 /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C276462089A1E1005EDC44 /* RenameViewController.swift */; };
 		29C2764B2089A4F6005EDC44 /* ChangePassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */; };
 		29C276512089E316005EDC44 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C276502089E316005EDC44 /* VersionViewController.swift */; };
@@ -29,54 +26,16 @@
 		29E6A2BF20B6AD5700B90B7D /* BLEProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2BE20B6AD5700B90B7D /* BLEProtocol.swift */; };
 		29E6A2C120B6AD9B00B90B7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2C020B6AD9A00B90B7D /* User.swift */; };
 		29E6A2C320B6ADA100B90B7D /* ScannedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E6A2C220B6ADA100B90B7D /* ScannedPeripheral.swift */; };
+		4F1AD26522B68A6300007CEB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26322B68A6300007CEB /* CryptoSwift.framework */; };
+		4F1AD26722B68A6800007CEB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26322B68A6300007CEB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F1AD26822B68A6800007CEB /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */; };
+		4F1AD26922B68A6800007CEB /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F6B90532183782A00ADBA9D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B90522183782A00ADBA9D /* UIViewExtension.swift */; };
 		4F6BD40E2140226B009759D2 /* LockAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BD40D2140226B009759D2 /* LockAppSetting.swift */; };
 		4F6BD41721417C60009759D2 /* InputPassCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BD41621417C60009759D2 /* InputPassCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2910D36B20D0D9960039C099 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 754BE45419693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		297671FE20D0D45F00279CCF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE45519693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		2976720020D0D45F00279CCF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75211F92207249D8004E41F8;
-			remoteInfo = "CryptoSwift-TestHostApp";
-		};
-		2976720220D0D45F00279CCF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE46019693E190098E6F3;
-			remoteInfo = Tests;
-		};
-		2976720420D0D45F00279CCF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
-			remoteInfo = "TestsPerformance-Mac";
-		};
-		2976720620D0D45F00279CCF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
-			remoteInfo = "TestsPerformance-iOS";
-		};
 		2976ED2320847721007779BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2976ED062084771E007779BB /* Project object */;
@@ -91,27 +50,6 @@
 			remoteGlobalIDString = 2976ED0D2084771E007779BB;
 			remoteInfo = iky.smartkey;
 		};
-		29B9196D20B7A5E100F7D967 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D286A7491518C70F00E13FB8;
-			remoteInfo = "MBProgressHUD Static Library";
-		};
-		29B9196F20B7A5E100F7D967 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1D104D7A1ACA36CC00973364;
-			remoteInfo = "MBProgressHUD Framework";
-		};
-		29B9197120B7A5E100F7D967 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1777D3DF1D757AF50037C7F1;
-			remoteInfo = "MBProgressHUD Framework tvOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,7 +59,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2910D36A20D0D9960039C099 /* CryptoSwift.framework in Embed Frameworks */,
+				4F1AD26922B68A6800007CEB /* MBProgressHUD.framework in Embed Frameworks */,
+				4F1AD26722B68A6800007CEB /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +69,6 @@
 
 /* Begin PBXFileReference section */
 		29209DAF208885FB0008CF0D /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
-		297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		2976ED0E2084771E007779BB /* farmland smk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "farmland smk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2976ED112084771E007779BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2976ED162084771E007779BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,7 +82,6 @@
 		2976ED3120847721007779BB /* iky_smartkeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iky_smartkeyUITests.swift; sourceTree = "<group>"; };
 		2976ED3320847721007779BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2977C14C20CA173E00876E04 /* ChangeSMKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSMKViewController.swift; sourceTree = "<group>"; };
-		29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		29C276462089A1E1005EDC44 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		29C2764A2089A4F6005EDC44 /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
 		29C276502089E316005EDC44 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +94,8 @@
 		29E6A2BE20B6AD5700B90B7D /* BLEProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEProtocol.swift; sourceTree = "<group>"; };
 		29E6A2C020B6AD9A00B90B7D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		29E6A2C220B6ADA100B90B7D /* ScannedPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedPeripheral.swift; sourceTree = "<group>"; };
+		4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		4F1AD26322B68A6300007CEB /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = ../Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		4F6B90522183782A00ADBA9D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4F6BD40D2140226B009759D2 /* LockAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockAppSetting.swift; sourceTree = "<group>"; };
 		4F6BD41621417C60009759D2 /* InputPassCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPassCodeViewController.swift; sourceTree = "<group>"; };
@@ -167,8 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29B9198520B7A5FF00F7D967 /* libMBProgressHUD.a in Frameworks */,
-				2910D36920D0D9960039C099 /* CryptoSwift.framework in Frameworks */,
+				4F1AD26822B68A6800007CEB /* MBProgressHUD.framework in Frameworks */,
+				4F1AD26522B68A6300007CEB /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,18 +128,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		297671F720D0D45F00279CCF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				297671FF20D0D45F00279CCF /* CryptoSwift.framework */,
-				2976720120D0D45F00279CCF /* CryptoSwift-TestHostApp.app */,
-				2976720320D0D45F00279CCF /* Tests.xctest */,
-				2976720520D0D45F00279CCF /* TestsPerformance-Mac.xctest */,
-				2976720720D0D45F00279CCF /* TestsPerformance-iOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2976ED052084771E007779BB = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +152,6 @@
 		2976ED102084771E007779BB /* ble tdx */ = {
 			isa = PBXGroup;
 			children = (
-				29C75B322088383800A069F2 /* Frameworks */,
 				2976ED572084A8F4007779BB /* View */,
 				2976ED4A2084A659007779BB /* BLE */,
 				2976ED492084A63D007779BB /* Data */,
@@ -297,27 +223,10 @@
 		29B9196020B7A3BD00F7D967 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F1AD26322B68A6300007CEB /* CryptoSwift.framework */,
+				4F1AD26222B68A6300007CEB /* MBProgressHUD.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		29B9196820B7A5E000F7D967 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */,
-				29B9197020B7A5E100F7D967 /* MBProgressHUD.framework */,
-				29B9197220B7A5E100F7D967 /* MBProgressHUD.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		29C75B322088383800A069F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */,
-				29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		4F6B904A2183780900ADBA9D /* Extension */ = {
@@ -343,7 +252,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2910D36C20D0D9960039C099 /* PBXTargetDependency */,
 			);
 			name = "farmland smk";
 			productName = iky.smartkey;
@@ -420,16 +328,6 @@
 			mainGroup = 2976ED052084771E007779BB;
 			productRefGroup = 2976ED0F2084771E007779BB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 297671F720D0D45F00279CCF /* Products */;
-					ProjectRef = 297671F620D0D45F00279CCF /* CryptoSwift.xcodeproj */;
-				},
-				{
-					ProductGroup = 29B9196820B7A5E000F7D967 /* Products */;
-					ProjectRef = 29B9196720B7A5E000F7D967 /* MBProgressHUD.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2976ED0D2084771E007779BB /* farmland smk */,
@@ -438,65 +336,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		297671FF20D0D45F00279CCF /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = 297671FE20D0D45F00279CCF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2976720120D0D45F00279CCF /* CryptoSwift-TestHostApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "CryptoSwift-TestHostApp.app";
-			remoteRef = 2976720020D0D45F00279CCF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2976720320D0D45F00279CCF /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = 2976720220D0D45F00279CCF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2976720520D0D45F00279CCF /* TestsPerformance-Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-Mac.xctest";
-			remoteRef = 2976720420D0D45F00279CCF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2976720720D0D45F00279CCF /* TestsPerformance-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-iOS.xctest";
-			remoteRef = 2976720620D0D45F00279CCF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		29B9196E20B7A5E100F7D967 /* libMBProgressHUD.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMBProgressHUD.a;
-			remoteRef = 29B9196D20B7A5E100F7D967 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		29B9197020B7A5E100F7D967 /* MBProgressHUD.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MBProgressHUD.framework;
-			remoteRef = 29B9196F20B7A5E100F7D967 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		29B9197220B7A5E100F7D967 /* MBProgressHUD.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MBProgressHUD.framework;
-			remoteRef = 29B9197120B7A5E100F7D967 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2976ED0C2084771E007779BB /* Resources */ = {
@@ -569,11 +408,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2910D36C20D0D9960039C099 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CryptoSwift;
-			targetProxy = 2910D36B20D0D9960039C099 /* PBXContainerItemProxy */;
-		};
 		2976ED2420847721007779BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2976ED0D2084771E007779BB /* farmland smk */;
