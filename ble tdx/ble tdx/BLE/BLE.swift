@@ -41,7 +41,7 @@ protocol BLEChangePassDelegate: NSObjectProtocol {
 }
 
 protocol BLEDiscoverPeripheral: NSObjectProtocol {
-    func discover(_ peripheral : CBPeripheral, rssi: NSNumber)
+    func discover(_ peripheral : CBPeripheral, rssi: NSNumber?)
 }
 
 
@@ -258,6 +258,16 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         self.delegaatePeripheral?.discover(peripheral,rssi : RSSI)
+        peripheral.delegate = self
+    }
+    
+    //MARK: - CBPeripheralDelegate
+    func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
+        self.delegaatePeripheral?.discover(peripheral, rssi: nil)
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        self.delegaatePeripheral?.discover(peripheral, rssi: RSSI)
     }
     
     

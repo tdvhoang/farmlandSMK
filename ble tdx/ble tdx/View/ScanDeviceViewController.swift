@@ -7,7 +7,8 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tbPeripheral: UITableView!
     
-    var peripherals : [ScannedPeripheral]!
+    var peripherals = [ScannedPeripheral]()
+    var alivePeripherals = [ScannedPeripheral]()
     var bluetoothManager : CBCentralManager!
     var timer : Timer?
 
@@ -16,7 +17,6 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
 
         self.edgesForExtendedLayout = UIRectEdge()
         BLE.shared.delegaatePeripheral = self
-        peripherals = [ScannedPeripheral]()
         tbPeripheral.delegate = self
         tbPeripheral.dataSource = self
         
@@ -41,47 +41,36 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
         self.timer = nil
     }
     
-    func discover(_ peripheral: CBPeripheral, rssi: NSNumber) {
+    func discover(_ peripheral: CBPeripheral, rssi: NSNumber?) {
         if let sensor = self.getExistedPeripheral(peripheral) {
-            if sensor.rssi != rssi.intValue {
-                DispatchQueue.main.async {
-                    for aCell in self.tbPeripheral.visibleCells {
-                        if let aCell = aCell as? ScanTableViewCell, let per = aCell.per {
-                            if per == sensor {
-                                if let indexPath = self.tbPeripheral.indexPath(for: aCell) {
-                                    self.tbPeripheral.reloadRows(at:  [indexPath], with: .none)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            sensor.rssi = rssi.intValue
+            sensor.updateData(peripheral, rssi: rssi)
         }
-        else {
+        else if let rssi = rssi {
             let sensor = ScannedPeripheral(peripheral: peripheral, rssi: rssi.intValue, isConnected: false)
-            peripherals.append(sensor)
+            self.peripherals.append(sensor)
         }
     }
     
     @objc func timerFireMethod() {
-        if self.peripherals.count > 0 {
+        let alive = self.peripherals.getAlivePeripherals()
+        if alive != self.alivePeripherals {
+            self.alivePeripherals = alive
             self.tbPeripheral.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.peripherals.count
+        return self.alivePeripherals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeripheralCell") as! ScanTableViewCell
-        cell.show(peripherals[indexPath.row])
+        cell.show(self.alivePeripherals[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let peripheral = peripherals[indexPath.row].peripheral
+        let peripheral = self.alivePeripherals[indexPath.row].peripheral
         BLE.shared.scannedPeripheral = peripheral
         BLE.shared.user.uuid = peripheral?.identifier.uuidString
         //ble.user.saveValue()
