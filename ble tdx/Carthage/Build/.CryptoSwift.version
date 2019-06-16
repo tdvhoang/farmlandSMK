@@ -3,7 +3,7 @@
   "iOS" : [
     {
       "name" : "CryptoSwift",
-      "hash" : "4ad13109bfd160518f47fb43df1945dde96d821e255ffd7232b0c96f4a3c6a7a",
+      "hash" : "dbac011b1072807c3169c716e2f963fe172c29eda068781944ecaa7b790414d3",
       "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ]
