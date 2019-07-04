@@ -78,7 +78,11 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
     }
     
     func showAlertInputPin(){
-        let alertController = UIAlertController(title: "Nhập mật khẩu", message: nil, preferredStyle: .alert)
+        var message: String? = nil
+        if let device = BLE.shared.scannedPeripheral, let name = device.name {
+            message = "Thiết bị \(name)"
+        }
+        let alertController = UIAlertController(title: "Nhập mật khẩu", message: message, preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
             textField.placeholder = "Mật khẩu"
