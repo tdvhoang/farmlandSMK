@@ -33,6 +33,7 @@
 		4F6B90532183782A00ADBA9D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B90522183782A00ADBA9D /* UIViewExtension.swift */; };
 		4F6BD40E2140226B009759D2 /* LockAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BD40D2140226B009759D2 /* LockAppSetting.swift */; };
 		4F6BD41721417C60009759D2 /* InputPassCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BD41621417C60009759D2 /* InputPassCodeViewController.swift */; };
+		4F72106B22D1FC740032CA10 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F72106A22D1FC740032CA10 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		4F6B90522183782A00ADBA9D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4F6BD40D2140226B009759D2 /* LockAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockAppSetting.swift; sourceTree = "<group>"; };
 		4F6BD41621417C60009759D2 /* InputPassCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPassCodeViewController.swift; sourceTree = "<group>"; };
+		4F72106A22D1FC740032CA10 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F72106B22D1FC740032CA10 /* Security.framework in Frameworks */,
 				4F1AD27022B68E6700007CEB /* MBProgressHUD.framework in Frameworks */,
 				4F1AD26D22B68E6200007CEB /* CryptoSwift.framework in Frameworks */,
 			);
@@ -221,6 +224,7 @@
 		29B9196020B7A3BD00F7D967 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F72106A22D1FC740032CA10 /* Security.framework */,
 				4F1AD26B22B68E6200007CEB /* CryptoSwift.framework */,
 				4F1AD26A22B68E6200007CEB /* MBProgressHUD.framework */,
 			);
@@ -593,7 +597,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Farmland Smarkey Developement";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS/";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -618,7 +622,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Farmland SMK";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS/";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -639,7 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "iky.iky-smartkeyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Farmland SMK.temp_caseinsensitive_rename.app/Farmland SMK.temp_caseinsensitive_rename";
 			};
@@ -661,7 +665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "iky.iky-smartkeyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Farmland SMK.temp_caseinsensitive_rename.app/Farmland SMK.temp_caseinsensitive_rename";
 			};
@@ -682,7 +686,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "iky.iky-smartkeyUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iky.smartkey;
 			};
@@ -703,7 +707,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "iky.iky-smartkeyUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iky.smartkey;
 			};

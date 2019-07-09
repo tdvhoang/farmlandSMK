@@ -1,8 +1,6 @@
 import UIKit
 import CommonCrypto
 
-private let kSymmetricCryptorRandomStringGeneratorCharset: [Character] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map({$0})
-
 enum SymmetricCryptorAlgorithm {
     case des        // DES standard, 64 bits key
     case des40      // DES, 40 bits key
@@ -170,29 +168,5 @@ class SymmetricCryptor: NSObject {
             print("Error in crypto operation: \(cryptStatus)")
             throw(SymmetricCryptorError.cryptOperationFailed)
         }
-    }
-    
-    // MARK: - Random methods
-    
-    class func randomDataOfLength(_ length: Int) -> Data? {
-        var mutableData = Data(count: length)
-        let bytes = mutableData.withUnsafeMutableBytes { (bytes: UnsafeMutablePointer<UInt8>) -> UnsafeMutablePointer<UInt8> in
-            return bytes
-        }
-        let status = SecRandomCopyBytes(kSecRandomDefault, length, bytes)
-        return status == 0 ? mutableData as Data : nil
-    }
-    
-    class func randomStringOfLength(_ length:Int) -> String {
-        var string = ""
-        for _ in (1...length) {
-            string.append(kSymmetricCryptorRandomStringGeneratorCharset[Int(arc4random_uniform(UInt32(kSymmetricCryptorRandomStringGeneratorCharset.count) - 1))])
-        }
-        return string
-    }
-    
-    func setRandomIV() {
-        let length = self.algorithm.requiredIVSize(self.options)
-        self.iv = SymmetricCryptor.randomDataOfLength(length)
     }
 }

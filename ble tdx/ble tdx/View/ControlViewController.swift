@@ -25,7 +25,7 @@ class ControlViewController: BaseVC, BLEStatusDelegate, BLELogonDelegate {
             BLE.shared.readStatus()
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     deinit {

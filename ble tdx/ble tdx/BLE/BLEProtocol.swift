@@ -85,8 +85,8 @@ class BLEProtocol: NSObject {
         do{
             let selectedAlgorithm : SymmetricCryptorAlgorithm = .tripledes
             var options = 0
-            options |= kCCOptionPKCS7Padding 
-            options |= kCCOptionECBMode 
+            options |= kCCOptionPKCS7Padding
+            options |= kCCOptionECBMode
             let cypher = SymmetricCryptor(algorithm: selectedAlgorithm, options: options)
 
             var bytesInput = [UInt8]()

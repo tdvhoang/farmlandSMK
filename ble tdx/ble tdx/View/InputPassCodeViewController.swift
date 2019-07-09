@@ -84,7 +84,7 @@ class InputPassCodeViewController: UIViewController {
         self.btnCancel.action = #selector(self.handleCancelButton(_:))
         self.btnBackSpace.addTarget(self, action: #selector(self.handleBackSpaceButton(_:)), for: .touchUpInside)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleNotification(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     deinit {

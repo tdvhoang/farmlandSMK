@@ -20,7 +20,7 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
         tbPeripheral.delegate = self
         tbPeripheral.dataSource = self
         
-        let uiBusy : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let uiBusy : UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
         uiBusy.hidesWhenStopped = true
         uiBusy.startAnimating()
         let uibarbuttonitem = UIBarButtonItem()
@@ -107,8 +107,6 @@ class ScanDeviceViewController: BaseVC, UITableViewDelegate, UITableViewDataSour
                 BLE.shared.user.pin = tf?.text
                 BLE.shared.bleProtocol.pin = BLE.shared.user.pin
                 BLE.shared.user.saveValue()
-                
-                print ("PIN: ",BLE.shared.user.pin)
                 
                 self.navigationController?.popViewController(animated: true)
             }
