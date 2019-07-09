@@ -240,8 +240,11 @@ class BLE: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             delegateRename.error("Tên phải ít hơn 10 ký tự")
         }
     }
+    
     func changePass(_ newPass: String){
-        send(bleProtocol.changepass(newPass))
+        bleProtocol.changepass(newPass, completion: { bytes in
+            self.send(bytes)
+        })
     }
 
     //MARK:Scan

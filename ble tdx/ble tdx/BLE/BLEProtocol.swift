@@ -64,9 +64,10 @@ class BLEProtocol: NSObject {
         return generatedCmd(OPCODE_RENAME, pin : pin, bytesData: [UInt8](newName.utf8))
     }
     
-    func changepass(_ newPass: String) -> [UInt8] {
-        let bytes = encrypt(newPass)
-        return generatedCmd(OPCODE_CHANGEPIN, pin : pin, bytesData: bytes)
+    func changepass(_ newPass: String, completion: @escaping ([UInt8]) -> Void) {
+        self.encrypt(newPass) { bytes in
+            completion(self.generatedCmd(self.OPCODE_CHANGEPIN, pin: self.pin, bytesData: bytes))
+        }
     }
     
     func readStatus() -> [UInt8]{
@@ -81,7 +82,7 @@ class BLEProtocol: NSObject {
         return generatedCmd(OPCODE_WRITESMK, pin : pin, bytesData: [UInt8](newSMK.utf8))
     }
     
-    func encrypt(_ newPass: String) -> [UInt8]{
+    func encrypt(_ newPass: String, completion: @escaping ([UInt8]) -> Void) {
         do{
             let selectedAlgorithm : SymmetricCryptorAlgorithm = .tripledes
             var options = 0
@@ -101,23 +102,18 @@ class BLEProtocol: NSObject {
             
             let stringKey = pin + pin + pin + pin + pin + pin
 
-            let cypherText : Data = try cypher.crypt(data: Data(bytes: UnsafePointer<UInt8>(bytesInput), count: 8), key: stringKey)
-
-            _ = cypherText.count / MemoryLayout<UInt8>.size
-            // create array of appropriate length:
-            var array = [UInt8](repeating: 0, count: 8)
-            // copy bytes into array
-            (cypherText as NSData).getBytes(&array, length:8 * MemoryLayout<UInt8>.size)
-            print(array)
-            return array
-        }catch{
-            return [0]
+            try cypher.crypt(data: Data(bytes: UnsafePointer<UInt8>(bytesInput), count: 8), key: stringKey, completion: { cypherText in
+                var array = [UInt8](repeating: 0, count: 8)
+                // copy bytes into array
+                (cypherText as NSData).getBytes(&array, length:8 * MemoryLayout<UInt8>.size)
+                print(array)
+                completion(array)
+            })
+        }
+        catch {
+            completion([0])
         }
     }
-
-
-
-
     
     func generatedCmd(_ opcode : UInt8, pin : String, bytesData : [UInt8]) -> [UInt8]{
 	    var bytesPinData : [UInt8] = [UInt8]()
